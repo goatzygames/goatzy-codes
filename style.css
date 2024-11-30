@@ -175,6 +175,9 @@ a {
 
 .content {
     width: 100%;
+    box-shadow: 5px 5px 15px;
+    padding: 25px;
+    border-radius: 30px;
 }
 
 .user {
@@ -190,7 +193,7 @@ a {
     padding: 10px;
     padding-left: 0;
     outline: none;
-    border-bottom: 2px solid blue;
+    border-bottom: 2.5px solid blue;
     margin-bottom: 10px;
     width: 95%;
 }
@@ -208,6 +211,16 @@ a {
     color: gray;
 }
 
+.buttons button.abled {
+    background: blue;
+    color: #fff;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
 .buttons button {
     padding: 5px 10px;
     background: lightblue;
@@ -222,4 +235,76 @@ a {
 .policy a {
     text-decoration: none;
     color: blue;
+}
+
+/* This is to make sure the published comment doesn't exceed the container width */
+.comments {
+    width: 100%;
+    max-width: 500px; /* Keeps the width consistent with your .commentcontainer */
+    margin-top: 20px;
+}
+
+.parents {
+    display: flex;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    max-width: 100%; /* Ensures it doesn't exceed the parent container */
+}
+
+.parents img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.parents > img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 20px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.parents > div {
+    flex: 1;
+}
+
+.parents h1 {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.parents p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    line-height: 1.4;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.engagements img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.engagements img:nth-child(1) {
+    margin-right: 10px;
+    width: 25px;
+}
+
+.date {
+    font-size: 0.8em;
+    color: gray;
+}
+
+#CommenterStyle {
+    box-shadow: 5px 5px 15px;
 }

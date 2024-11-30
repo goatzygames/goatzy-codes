@@ -1,0 +1,27 @@
+body {
+    display: flex;
+    flex-direction: column;   /* Stack elements vertically */
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background: linear-gradient(rgb(0, 55, 255), rgb(231, 255, 226), rgb(0, 55, 255));
+    background-repeat: repeat;
+    word-wrap: break-word;     /* Ensure words break correctly */
+    min-height: 100vh
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+p, h1, h2, h3 {
+    font-family: 'Oswald', sans-serif; /* Add a fallback font */
+}
+
+#First {
+    border: 10px solid white;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 5px 5px 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 15px;
+}

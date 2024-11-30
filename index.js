@@ -86,18 +86,100 @@ const userId = {
     image: null,
     message: null,
     date: null
-}
+};
 
-const userComment = document.querySelector(".userComment");
+const userComment = document.querySelector(".usercomment");
 const publishBtn = document.querySelector("#publish");
 const comments = document.querySelector(".comments");
 const userName = document.querySelector(".user");
 
-userComment.addEventListener("input", e => {
-    if(!userComment.value) {
-        publishBtn.setAttribute("disabled", "disabled");
-        publishBtn.classList.remove("abled")
-    }else {
-        publishBtn.removeAttribute("disabled")
+// Check if there are saved comments in localStorage and display them
+window.onload = function() {
+    const savedComments = localStorage.getItem("comments");
+    if (savedComments) {
+        comments.innerHTML = savedComments; // Load comments from localStorage
+        updateCommentCount();
     }
-})
+};
+
+// Enable or disable the publish button based on user input
+userComment.addEventListener("input", e => {
+    if (!userComment.value) {
+        publishBtn.setAttribute("disabled", "disabled");
+        publishBtn.classList.remove("abled");
+    } else {
+        publishBtn.removeAttribute("disabled");
+        publishBtn.classList.add("abled");
+    }
+});
+
+// Function to add a comment
+function addPost() {
+    console.log("The button works");
+
+    if (!userComment.value) return;
+
+    // Create the comment object
+    userId.name = userName.value;
+    if (userId.name === "Anonymouse") {
+        userId.identity = false;
+        userId.image = "anonymousecommenter.png";
+    } else {
+        userId.identity = true;
+        userId.image = "commenterpng.png";
+    }
+
+    userId.message = userComment.value;
+    userId.date = new Date().toLocaleString();
+
+    // Create the HTML for the new comment
+    let published = `
+        <div class="parents">
+            <img src="${userId.image}" alt="User Image">
+            <div>
+                <h1>${userId.name}</h1>
+                <p>${userId.message}</p>
+                <div class="engagements">
+                    <img src="like.png" alt="Like">
+                    <img src="share.png" alt="Share">
+                </div>
+                <span class="date">${userId.date}</span>
+            </div>
+        </div>
+    `;
+
+    // Append the comment to the page
+    comments.innerHTML += published;
+
+    // Save the updated comments to localStorage
+    localStorage.setItem("comments", comments.innerHTML);
+
+    // Reset the input field
+    userComment.value = "";
+    
+    // Update the comment count
+    updateCommentCount();
+}
+
+// Function to update the comment count
+function updateCommentCount() {
+    let commentsNum = document.querySelectorAll(".parents").length;
+    document.getElementById("Comment").textContent = commentsNum;
+}
+
+// Attach event listener to the publish button
+publishBtn.addEventListener("click", addPost);
+
+
+document.getElementById("password")
+
+const locstorresetpass = ("LocalStorageReset0010")
+let passwordinputvalue = document.getElementById("password").value
+
+document.getElementById("PasswordButton").onclick = function() {
+    passwordinputvalue = document.getElementById("password").value
+    if (passwordinputvalue === locstorresetpass) {
+        localStorage.clear();
+        alert("Local storage has been cleared successfully.")
+    }
+}
