@@ -197,3 +197,32 @@ document.getElementById("PasswordButton").onclick = function() {
         alert("Local storage has been cleared successfully.");
     }
 };
+
+const display = document.getElementById("display");
+
+function appendToDisplay(input) {
+    display.value += input;
+}
+
+function calculate() {
+    try{
+        display.value = eval(display.value);
+    }
+    catch(error){
+        display.value = "Oops"
+    }
+}
+
+function clearDisplay() {
+    display.value = "";
+}
+
+function copyToClipboard() {
+    navigator.clipboard.writeText(display.value)
+        .then(() => {
+            alert("Text copied to clipboard");
+        })
+        .catch(err => {
+            alert("Text failed to copy to clipboard.", err);
+        });
+}
