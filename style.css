@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
 body {
     display: flex;
     flex-direction: column;   /* Stack elements vertically */
@@ -7,10 +9,9 @@ body {
     background: linear-gradient(rgb(0, 55, 255), rgb(231, 255, 226), rgb(0, 55, 255));
     background-repeat: repeat;
     word-wrap: break-word;     /* Ensure words break correctly */
-    min-height: 100vh
+    min-height: 100vh;
+    min-width: 90vh;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
 p, h1, h2, h3 {
     font-family: 'Oswald', sans-serif; /* Add a fallback font */
@@ -23,9 +24,10 @@ p, h1, h2, h3 {
     padding: 30px;
     border-radius: 10px;
     text-align: center;
-    width: 200px;
+    width: 300px;
     align-self: center;
     display:block;
+    font-size:x-large;
 }
 
 button {
@@ -34,7 +36,9 @@ button {
     height: 33px;
     border-radius: 15px;
     border: 0px solid gray;
-    color: white;    
+    color: white;
+    margin: 5px;
+    font-family: Oswald;
 }
 
 button:hover {
@@ -142,10 +146,11 @@ a {
 
 .commentcontainer {
     background: #fff;
-    padding: 20px;
+    padding: 0 20px;
     width: 500px;
     box-shadow: 0 0 5px #000;
     border-radius: 15px;
+    margin: 0 auto;
 }
 
 .head {
@@ -221,16 +226,6 @@ button:disabled {
     cursor: not-allowed;
 }
 
-.buttons button {
-    padding: 5px 10px;
-    background: lightblue;
-    color: gray;
-    text-transform: uppercase;
-    border: none;
-    outline: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
 
 .policy a {
     text-decoration: none;
@@ -307,4 +302,78 @@ button:disabled {
 
 #CommenterStyle {
     box-shadow: 5px 5px 15px;
+}
+
+.head {
+    box-shadow: 5px 5px 15px;
+    border-radius: 20px;
+    background: rgb(249, 254, 255);
+    padding: 15px;
+}
+
+.content-wrapper {
+    width: 80%;
+    position: relative;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.content-wrapper::before,
+.content-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background-color: #333;
+}
+
+.content-wrapper::before {
+    left: -10px;
+}
+
+.content-wrapper::after {
+    right: -10px;
+}
+
+input:focus {
+    box-shadow: 10px 10px 15px rgb(0, 132, 255);
+    border-radius: 15px;
+    z-index: 2;
+}
+
+#calculator {
+    padding: 20px;
+    height: 150%;
+    font-size: 3rem;
+    font-weight: bold;
+    box-shadow: 5px 5px 15px;
+    background: white;
+    border-radius: 15px;
+    max-width: 500px;
+    overflow: scroll;
+}
+
+#keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 10px;
+    font-size: 3rem !important;
+    font-weight: bold !important;
+}
+
+#CalculatorText {
+    font-size: xxx-large;
+    text-align: center;
+}
+
+#display {
+    width: 100%;
+    padding: 0px;
+    font-size: 5rem;
+    text-align: left;
+    border: 5px solid rgba(136, 211, 255, 0.668);
+    background: rgb(240, 240, 240);
+    font-family: Oswald;
+    
 }

@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Goatzy's Codes</title>
+    <link rel="icon" type="image/x-icon" href="blueglossygoat.png">
     <link rel="stylesheet" href="style.css">    
 </head>
 <body>
+        
+    <div class="content-wrapper"></div>
+    <div style="height: 100px; border-left: 2px solid black; margin: 0 10px;"></div>
+
     <p id="FirstProject"></p><br><br><br><br><br><br><br><br><br>
 
 <div class="MenuMenu">
@@ -18,13 +23,15 @@
     <h3 id="TheMenu" style="margin-bottom: 50px;">My Projects</h3>
     <a href="#FirstProject">Name Saving System</a><br><br>
     <a href="#SecondProject">Counter System</a><br><br>
-    <a href="#StartComment">Comments</a>
+    <a href="#CommenterStyle">Comments</a><br><br>
+    <a href="#CalculatorText">Calculator</a><br><br>
 
 
-    <hr><p>Password</p><input id="password" type="text"><button id="PasswordButton">Submit</button>
+    <hr><p>Admin Passwords</p><input id="password" type="password"><button id="PasswordButton">Submit</button>
 </div>
     
     <div class="Container" style="text-align: center;">
+        <a href="not-found-page.html"><button id="AboutName">About</button></a>
         <p>Save Your Name System</p><br>
         <p style="font-size: large;">Enter Your Name Here</p>
         <input id="Input">
@@ -35,8 +42,9 @@
     <h1 id="Header"></h1>
        
     <br><br><br><hr><br>
-    <p id="SecondProject"></p>
-    <div class="SecondContainer" style="text-align: center;">
+    <p id="SecondProject"></p><hr>
+        <div class="SecondContainer" style="text-align: center;">
+            <a href="not-found-page.html"><button id="AboutName">About</button></a>
         <h1>Counter</h1>
         <h1 id="SetNumber">0</h1>
         <button id="DecreaseButton">Decrease</button>
@@ -50,9 +58,12 @@
     <br>
 
     <div id="StartComment" class="commentcontainer">
-        <div class="head">
-            <br><br><br><h1>Post a Comment!</h1>
+        <br><a href="not-found-page.html">
+        <button id="AboutComments" style="align-self: center; text-align: center;">About</button></a><br>
+        <div class="head"><br>
+            <br><h1>What do you think of my projects and so?</h1>
             <a href="#publish">Click here to scroll down...</a>
+            <br><br><i>This will send the message to me, but still will save on your own device.</i>
         </div>
         <div>
             <span id="Comment">0</span> Comments
@@ -67,20 +78,47 @@
                 <h2>Comment as:</h2>
                 <input type="text" value="Anonymouse" class="user">
                 <div class="commentinput">
-                    <input type="text" placeholder="Enter your comment..." class="usercomment">
+                    <input id="input" type="text" placeholder="Enter your comment..." class="usercomment">
                     <div class="buttons">
-                        <button type="submit" disabled id="publish">Publish</button>
+                        <button type="submit" id="publish">Publish</button>
                     </div>
                 </div>
                 <p class="policy">This site is protected by reCAPTCHA and the Google 
-                    <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a> apply.
+                    <a href="not-found-page.html">Privacy Policy</a> and <a href="not-found-page.html">Terms of Service</a> apply.
                 </p>
             </div>
         </div>    
-    </div>
+    </div>    
     
+    <br><br><br><br>
+
+    <div id="calculator">
+        <h1 id="CalculatorText">Calculator</h1>
+        <input style="height: 50%;" id="display" readonly>
+        <div id="keys">
+            <button onclick="appendToDisplay('+')">+</button>
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button onclick="appendToDisplay('-')">-</button>
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button onclick="appendToDisplay('*')">*</button>
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button onclick="appendToDisplay('/')">/</button>
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('.')">.</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="copyToClipboard()">Copy</button>
+        </div>
+    </div>
 
     <script src="index.js"></script>
+    <div style="height: 100px; border-left: 2px solid black; margin: 0 10px;"></div>
 </body>
        
 </html>

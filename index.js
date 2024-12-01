@@ -57,10 +57,6 @@ if (hours >= 6 && hours < 12) {
     document.getElementById("Welcome").textContent = `${message}! Here are some of my small projects!`;
 }
 
-const hamMenu = document.querySelector('.ham-menu');
-
-const offScreenMenu = document.querySelector('.off-screen-menu');
-
 document.getElementById("MenuButton").onclick = function () {
 
     let LitTheMenu = document.getElementsByClassName("LiterallyTheMenu")[0];
@@ -119,8 +115,8 @@ function addPost() {
 
     if (!userComment.value) return;
 
-    // Create the comment object
-    userId.name = userName.value;
+    // Set the user name from the input
+    userId.name = userName.value || "Anonymouse"; // If no name, set default to "Anonymouse"
     if (userId.name === "Anonymouse") {
         userId.identity = false;
         userId.image = "anonymousecommenter.png";
@@ -159,6 +155,9 @@ function addPost() {
     
     // Update the comment count
     updateCommentCount();
+
+    // Send the comment via EmailJS
+    sendEmail(userId);
 }
 
 // Function to update the comment count
@@ -167,19 +166,63 @@ function updateCommentCount() {
     document.getElementById("Comment").textContent = commentsNum;
 }
 
+// Function to send email using EmailJS
+function sendEmail(userId) {
+    const templateParams = {
+        to_name: "dev@goatzy-codes.xyz", // Your email
+        from_name: userId.name || "Anonymouse", // Name of the commenter
+        message: userId.message, // The comment message
+    };
+
+    emailjs.send("service_z6as17f", "template_kiwhxjn", templateParams)
+        .then(function(response) {
+            console.log("Email sent successfully:", response);
+        }, function(error) {
+            console.log("Email sending failed:", error);
+        });
+}
+
 // Attach event listener to the publish button
 publishBtn.addEventListener("click", addPost);
 
+document.getElementById("password");
 
-document.getElementById("password")
-
-const locstorresetpass = ("LocalStorageReset0010")
-let passwordinputvalue = document.getElementById("password").value
+const locstorresetpass = ("LocalStorageReset0010");
+let passwordinputvalue = document.getElementById("password").value;
 
 document.getElementById("PasswordButton").onclick = function() {
-    passwordinputvalue = document.getElementById("password").value
+    passwordinputvalue = document.getElementById("password").value;
     if (passwordinputvalue === locstorresetpass) {
         localStorage.clear();
-        alert("Local storage has been cleared successfully.")
+        alert("Local storage has been cleared successfully.");
     }
+};
+
+const display = document.getElementById("display");
+
+function appendToDisplay(input) {
+    display.value += input;
+}
+
+function calculate() {
+    try{
+        display.value = eval(display.value);
+    }
+    catch(error){
+        display.value = "Oops"
+    }
+}
+
+function clearDisplay() {
+    display.value = "";
+}
+
+function copyToClipboard() {
+    navigator.clipboard.writeText(display.value)
+        .then(() => {
+            alert("Text copied to clipboard");
+        })
+        .catch(err => {
+            alert("Text failed to copy to clipboard.", err);
+        });
 }
