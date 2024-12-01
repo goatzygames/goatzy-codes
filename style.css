@@ -36,7 +36,9 @@ button {
     height: 33px;
     border-radius: 15px;
     border: 0px solid gray;
-    color: white;    
+    color: white;
+    margin: 5px;
+    font-family: Oswald;
 }
 
 button:hover {
@@ -307,4 +309,71 @@ button:disabled {
     border-radius: 20px;
     background: rgb(249, 254, 255);
     padding: 15px;
+}
+
+.content-wrapper {
+    width: 80%;
+    position: relative;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.content-wrapper::before,
+.content-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background-color: #333;
+}
+
+.content-wrapper::before {
+    left: -10px;
+}
+
+.content-wrapper::after {
+    right: -10px;
+}
+
+input:focus {
+    box-shadow: 10px 10px 15px rgb(0, 132, 255);
+    border-radius: 15px;
+    z-index: 2;
+}
+
+#calculator {
+    padding: 20px;
+    height: 150%;
+    font-size: 3rem;
+    font-weight: bold;
+    box-shadow: 5px 5px 15px;
+    background: white;
+    border-radius: 15px;
+    max-width: 500px;
+    overflow: scroll;
+}
+
+#keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 10px;
+    font-size: 3rem !important;
+    font-weight: bold !important;
+}
+
+#CalculatorText {
+    font-size: xxx-large;
+    text-align: center;
+}
+
+#display {
+    width: 100%;
+    padding: 0px;
+    font-size: 5rem;
+    text-align: left;
+    border: 5px solid rgba(136, 211, 255, 0.668);
+    background: rgb(240, 240, 240);
+    font-family: Oswald;
+    
 }
