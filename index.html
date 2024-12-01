@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">    
 </head>
 <body>
+         
     <p id="FirstProject"></p><br><br><br><br><br><br><br><br><br>
 
 <div class="MenuMenu">
@@ -21,10 +22,11 @@
     <a href="#StartComment">Comments</a>
 
 
-    <hr><p>Password</p><input id="password" type="text"><button id="PasswordButton">Submit</button>
+    <hr><p>Admin Passwords</p><input id="password" type="password"><button id="PasswordButton">Submit</button>
 </div>
     
     <div class="Container" style="text-align: center;">
+        <button id="AboutName">About</button>
         <p>Save Your Name System</p><br>
         <p style="font-size: large;">Enter Your Name Here</p>
         <input id="Input">
@@ -35,8 +37,9 @@
     <h1 id="Header"></h1>
        
     <br><br><br><hr><br>
-    <p id="SecondProject"></p>
-    <div class="SecondContainer" style="text-align: center;">
+    <p id="SecondProject"></p><hr>
+        <div class="SecondContainer" style="text-align: center;">
+            <button id="AboutName">About</button>
         <h1>Counter</h1>
         <h1 id="SetNumber">0</h1>
         <button id="DecreaseButton">Decrease</button>
@@ -50,9 +53,12 @@
     <br>
 
     <div id="StartComment" class="commentcontainer">
+        <a href="not-found-page.html">
+        <button id="AboutComments" style="align-self: center; text-align: center;">About</button></a>
         <div class="head">
-            <br><br><br><h1>Post a Comment!</h1>
+            <br><br><br><h1>What do you think of my projects and so?</h1>
             <a href="#publish">Click here to scroll down...</a>
+            <br><br><i>This will send the message to me, but still will save on your own device.</i>
         </div>
         <div>
             <span id="Comment">0</span> Comments
@@ -67,9 +73,9 @@
                 <h2>Comment as:</h2>
                 <input type="text" value="Anonymouse" class="user">
                 <div class="commentinput">
-                    <input type="text" placeholder="Enter your comment..." class="usercomment">
+                    <input id="input" type="text" placeholder="Enter your comment..." class="usercomment">
                     <div class="buttons">
-                        <button type="submit" disabled id="publish">Publish</button>
+                        <button type="submit" id="publish">Publish</button>
                     </div>
                 </div>
                 <p class="policy">This site is protected by reCAPTCHA and the Google 
@@ -77,10 +83,11 @@
                 </p>
             </div>
         </div>    
-    </div>
+    </div>    
     
+    <br><br><br><br>
 
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
 </body>
        
 </html>
