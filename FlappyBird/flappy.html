@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Flappy Goatzy</title>
+<link rel="icon" type="image/x-icon" href="blueglossygoat.png">
+<link rel="stylesheet" href="flappy.css">
+<style>
+canvas {
+    border:10px inset #008b15;
+    animation: FadeIn 2s ease-in-out;
+}
+</style>
+</head>
+<body onload="startGame()">
+
+    <hr>
+    <h1>Flappy Goatzy</h1><br><br>
+    <h2>High score: </h2><h2 id="HighScoreText"></h2>
+
+    <script>
+        var myGamePiece;
+        var myObstacles = [];
+        var myScore;
+        var highScore = localStorage.getItem("highScore") || 0;
+        
+        // Set initial high score text
+        document.getElementById("HighScoreText").innerText = highScore;
+        
+        function startGame() {
+            myGamePiece = new component(30, 30, "red", 10, 120);
+            myGamePiece.gravity = 0.05;
+            myScore = new component("30px", "Consolas", "black", 280, 40, "text");
+            myGameArea.start();
+        }
+        
+        var myGameArea = {
+            canvas: document.createElement("canvas"),
+            start: function () {
+                this.canvas.width = 480;
+                this.canvas.height = 270;
+                this.context = this.canvas.getContext("2d");
+                document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+                this.frameNo = 0;
+                this.interval = setInterval(updateGameArea, 20);
+            },
+            clear: function () {
+                this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            },
+            stop: function () {
+                clearInterval(this.interval); // Stop the game loop
+            }
+        };
+        
+        function component(width, height, color, x, y, type) {
+            this.type = type;
+            this.score = 0;
+            this.width = width;
+            this.height = height;
+            this.speedX = 0;
+            this.speedY = 0;
+            this.x = x;
+            this.y = y;
+            this.gravity = 0;
+            this.gravitySpeed = 0;
+            this.update = function () {
+                ctx = myGameArea.context;
+                if (this.type == "text") {
+                    ctx.font = this.width + " " + this.height;
+                    ctx.fillStyle = color;
+                    ctx.fillText(this.text, this.x, this.y);
+                } else {
+                    ctx.fillStyle = color;
+                    ctx.fillRect(this.x, this.y, this.width, this.height);
+                }
+            };
+            this.newPos = function () {
+                this.gravitySpeed += this.gravity;
+                this.x += this.speedX;
+                this.y += this.speedY + this.gravitySpeed;
+                this.hitBottom();
+            };
+            this.hitBottom = function () {
+                var rockbottom = myGameArea.canvas.height - this.height;
+                if (this.y > rockbottom) {
+                    this.y = rockbottom;
+                    this.gravitySpeed = 0;
+                }
+            };
+            this.crashWith = function (otherobj) {
+                var myleft = this.x;
+                var myright = this.x + this.width;
+                var mytop = this.y;
+                var mybottom = this.y + this.height;
+                var otherleft = otherobj.x;
+                var otherright = otherobj.x + otherobj.width;
+                var othertop = otherobj.y;
+                var otherbottom = otherobj.y + otherobj.height;
+                var crash = true;
+                if (
+                    mybottom < othertop ||
+                    mytop > otherbottom ||
+                    myright < otherleft ||
+                    myleft > otherright
+                ) {
+                    crash = false;
+                }
+                return crash;
+            };
+        }
+        
+        function updateGameArea() {
+            var x, height, gap, minHeight, maxHeight, minGap, maxGap;
+            for (i = 0; i < myObstacles.length; i += 1) {
+                if (myGamePiece.crashWith(myObstacles[i])) {
+                    gameOver(); // Call game over function when the player crashes
+                    return;
+                }
+            }
+            myGameArea.clear();
+            myGameArea.frameNo += 1;
+            if (myGameArea.frameNo == 1 || everyinterval(150)) {
+                x = myGameArea.canvas.width;
+                minHeight = 20;
+                maxHeight = 200;
+                height = Math.floor(Math.random() * (maxHeight - minHeight + 1) + minHeight);
+                minGap = 50;
+                maxGap = 200;
+                gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
+                myObstacles.push(new component(10, height, "green", x, 0));
+                myObstacles.push(new component(10, x - height - gap, "green", x, height + gap));
+            }
+            for (i = 0; i < myObstacles.length; i += 1) {
+                myObstacles[i].x += -1;
+                myObstacles[i].update();
+            }
+            myScore.text = "SCORE: " + myGameArea.frameNo;
+            myScore.update();
+            myGamePiece.newPos();
+            myGamePiece.update();
+        }
+        
+        function everyinterval(n) {
+            if ((myGameArea.frameNo / n) % 1 == 0) {
+                return true;
+            }
+            return false;
+        }
+        
+        function accelerate(n) {
+            myGamePiece.gravity = n;
+        }
+        
+        function gameOver() {
+            myGameArea.stop(); // Stop the game loop
+            // Update high score if necessary
+            if (myGameArea.frameNo > highScore) {
+                highScore = myGameArea.frameNo;
+                localStorage.setItem("highScore", highScore); // Save to local storage
+                document.getElementById("HighScoreText").innerText = highScore; // Update text
+            }
+            alert("Game Over! Your score: " + myGameArea.frameNo);
+        }
+        </script>
+        
+        
+<br>
+<button style="font-size: large; width: 110px; height: 50px;" onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">Accelerate</button>
+<button style="font-size: large; width: 110px; height: 50px;" onclick="window.location.href=window.location.href;">Restart Game</button>
+<p>Use the Accelerate button to stay in the air</p>
+<p>How long can you stay alive?</p><br>
+<a href="/index.html"><button style="font-size: large; width: 110px; height: 50px;">Home Page</button></a>
+</body>
+</html>

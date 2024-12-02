@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;   /* Stack elements vertically */
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background: linear-gradient(rgb(0, 55, 255), rgb(231, 255, 226), rgb(0, 55, 255));
+    background-repeat: repeat;
+    word-wrap: break-word;     /* Ensure words break correctly */
+    min-height: 100vh;
+    min-width: 90vh;
+}
+
+p, h1, h2, h3 {
+    font-family: 'Oswald', sans-serif; /* Add a fallback font */
+}
+
+@keyframes FadeIn {
+    0% {
+        opacity: 0%;
+    }
+    50% {
+        opacity: 30%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+button {
+    background-color: rgb(36, 153, 255);
+    width: 80px;
+    height: 33px;
+    border-radius: 15px;
+    border: 0px solid gray;
+    color: white;
+    margin: 5px;
+    font-family: Oswald;
+}
+
+button:hover {
+    background-color: rgb(19, 91, 154);
+}
+
+button:active {
+    animation: ButtonClick forwards 0.1s ease-in-out;
+}
+
+@keyframes ButtonClick {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    75% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+}

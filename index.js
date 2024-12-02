@@ -169,12 +169,12 @@ function updateCommentCount() {
 // Function to send email using EmailJS
 function sendEmail(userId) {
     const templateParams = {
-        to_name: "dev@goatzy-codes.xyz", // Your email
-        from_name: userId.name || "Anonymouse", // Name of the commenter
-        message: userId.message, // The comment message
+        to_name: "dev@goatzy-codes.xyz", // my email
+        from_name: userId.name || "Anonymouse", // name of the commenter
+        message: userId.message, // the comment message
     };
 
-    emailjs.send("service_z6as17f", "template_kiwhxjn", templateParams)
+    emailjs.send("service_h35zvc7", "template_q5opft8", templateParams)
         .then(function(response) {
             console.log("Email sent successfully:", response);
         }, function(error) {

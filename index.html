@@ -10,7 +10,8 @@
 <body>
         
     <div class="content-wrapper"></div>
-    <div style="height: 300px; border-left: 2px solid rgb(0, 21, 255); margin: 0 10px;"></div>
+    <h1 id="IntroductionText" style="text-align: center;">Hey there!<br>This is a small project I made where I put all of my smaller projects.<br>Give me suggestions/learning points in the #Comments !<br><br>Navigate through this website with the <i>My Projects</i> Button.</h1>
+    <div style="height: 300px; border-left: 2px solid rgb(0, 21, 255); margin: 0 10px;"></div><br>
 
     <p id="FirstProject"></p>
 
@@ -23,8 +24,9 @@
     <h3 id="TheMenu" style="margin-bottom: 50px;">My Projects</h3>
     <a href="#FirstProject">Name Saving System</a><br><br>
     <a href="#SecondProject">Counter System</a><br><br>
-    <a href="#CommenterStyle">Comments</a><br><br>
+    <a href="#AboutComments">Comments</a><br><br>
     <a href="#CalculatorText">Calculator</a><br><br>
+    <a href="#OpenFlappy">Flappy Bird</a><br><br>
 
 
     <hr><p>Admin Passwords</p><input id="password" type="password"><button id="PasswordButton">Submit</button>
@@ -57,7 +59,7 @@
     <br>
     <br>
 
-    <div id="StartComment" class="commentcontainer">
+    <div id="StartComment" class="commentcontainer" style="font-family: Oswald;">
         <br><a href="404.html">
         <button id="AboutComments" style="align-self: center; text-align: center;">About</button></a><br>
         <div class="head"><br>
@@ -96,28 +98,41 @@
         <h1 id="CalculatorText">Calculator</h1>
         <input style="height: 50%;" id="display" readonly>
         <div id="keys">
-            <button onclick="appendToDisplay('+')">+</button>
-            <button onclick="appendToDisplay('7')">7</button>
-            <button onclick="appendToDisplay('8')">8</button>
-            <button onclick="appendToDisplay('9')">9</button>
-            <button onclick="appendToDisplay('-')">-</button>
-            <button onclick="appendToDisplay('4')">4</button>
-            <button onclick="appendToDisplay('5')">5</button>
-            <button onclick="appendToDisplay('6')">6</button>
-            <button onclick="appendToDisplay('*')">*</button>
-            <button onclick="appendToDisplay('1')">1</button>
-            <button onclick="appendToDisplay('2')">2</button>
-            <button onclick="appendToDisplay('3')">3</button>
-            <button onclick="appendToDisplay('/')">/</button>
-            <button onclick="appendToDisplay('0')">0</button>
-            <button onclick="appendToDisplay('.')">.</button>
-            <button onclick="calculate()">=</button>
-            <button onclick="clearDisplay()">C</button>
-            <button onclick="copyToClipboard()">Copy</button>
+            <button onclick="appendToDisplay('+')" style="font-size: large;">+</button>
+            <button onclick="appendToDisplay('7')" style="font-size: large;">7</button>
+            <button onclick="appendToDisplay('8')" style="font-size: large;">8</button>
+            <button onclick="appendToDisplay('9')" style="font-size: large;">9</button>
+            <button onclick="appendToDisplay('-')" style="font-size: large;">-</button>
+            <button onclick="appendToDisplay('4')" style="font-size: large;">4</button>
+            <button onclick="appendToDisplay('5')" style="font-size: large;">5</button>
+            <button onclick="appendToDisplay('6')" style="font-size: large;">6</button>
+            <button onclick="appendToDisplay('*')" style="font-size: large;">*</button>
+            <button onclick="appendToDisplay('1')" style="font-size: large;">1</button>
+            <button onclick="appendToDisplay('2')" style="font-size: large;">2</button>
+            <button onclick="appendToDisplay('3')" style="font-size: large;">3</button>
+            <button onclick="appendToDisplay('/')" style="font-size: large;">/</button>
+            <button onclick="appendToDisplay('0')" style="font-size: large;">0</button>
+            <button onclick="appendToDisplay('.')" style="font-size: large;">.</button>
+            <button onclick="calculate()" style="font-size: large;">=</button>
+            <button onclick="clearDisplay()" style="font-size: large;">C</button>
+            <button onclick="copyToClipboard()" style="font-size: large;">Copy</button>
         </div>
     </div>
 
-    <script src="index.js"></script>
+    <br><br>
+    <div class="HelloTravelerFlappy"><h1>Hello dear traveler, 
+        <br><br>Click this button to access a Flappy bird clone<br>
+         that I've made:</h1>
+        <br><br><a href="/FlappyBird/flappy.html"><button id="OpenFlappy">Open Flappy</button></div></a>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function() {
+          emailjs.init("ielvIvKjqE4aMzpzy");
+       })();
+    </script>
+     
+    <script src="index.js"></script>    
     <div style="height: 100px; border-left: 2px solid rgb(0, 21, 255); margin: 0 10px;"></div>
 </body>
        
