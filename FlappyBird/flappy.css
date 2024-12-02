@@ -6,15 +6,16 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0;
+    padding: 20px; /* Add padding for smaller screens */
     background: linear-gradient(rgb(0, 55, 255), rgb(231, 255, 226), rgb(0, 55, 255));
     background-repeat: repeat;
     word-wrap: break-word;     /* Ensure words break correctly */
     min-height: 100vh;
-    min-width: 90vh;
 }
 
 p, h1, h2, h3 {
     font-family: 'Oswald', sans-serif; /* Add a fallback font */
+    text-align: center; /* Ensure proper alignment */
 }
 
 @keyframes FadeIn {
@@ -34,10 +35,12 @@ button {
     width: 80px;
     height: 33px;
     border-radius: 15px;
-    border: 0px solid gray;
+    border: none;
     color: white;
     margin: 5px;
-    font-family: Oswald;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    transition: transform 0.1s ease-in-out, background-color 0.2s ease;
 }
 
 button:hover {
@@ -60,5 +63,27 @@ button:active {
     }
     100% {
         transform: scale(1.2);
+    }
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    button {
+        width: 70px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    button {
+        width: 60px;
+        height: 25px;
+        font-size: 0.7rem;
     }
 }
