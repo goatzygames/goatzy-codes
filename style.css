@@ -2,15 +2,12 @@
 
 body {
     display: flex;
-    flex-direction: column;   /* Stack elements vertically */
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     margin: 0;
     background: linear-gradient(rgb(0, 55, 255), rgb(231, 255, 226), rgb(0, 55, 255));
-    background-repeat: repeat;
-    word-wrap: break-word;     /* Ensure words break correctly */
+    word-wrap: break-word;
     min-height: 100vh;
-    min-width: 90vh;
 }
 
 p, h1, h2, h3 {
@@ -21,7 +18,6 @@ p, h1, h2, h3 {
     background-color: white;
     border: 0.5px solid rgb(198, 198, 198);
     box-shadow: 2px 5px 20px black;
-    padding: 30px;
     border-radius: 10px;
     text-align: center;
     width: 300px;
@@ -32,8 +28,8 @@ p, h1, h2, h3 {
 
 button {
     background-color: rgb(36, 153, 255);
-    width: 80px;
-    height: 33px;
+    width: 90px;
+    height: 38px;
     border-radius: 15px;
     border: 0px solid gray;
     color: white;
@@ -313,11 +309,9 @@ button:disabled {
 }
 
 .content-wrapper {
-    width: 80%;
-    position: relative;
-    padding: 20px;
-    background-color: #fff;
-    height: 50px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
 }
 
 .content-wrapper::before,
@@ -407,4 +401,100 @@ input:focus {
 
 #OpenFlappy:hover {
     background: rgb(0, 103, 0);
+}
+
+/* Responsive Typography */
+h1, h2, h3, p {
+    font-family: 'Oswald', sans-serif;
+    line-height: 1.4;
+    text-align: center;
+}
+
+/* Make Containers Flexible */
+.Container, .SecondContainer, .commentcontainer {
+    width: 90%;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 2px 5px 20px black;
+    border-radius: 10px;
+    background: white;
+}
+
+button {
+    display: inline-flex; /* Allows flexible alignment */
+    align-items: center;  /* Centers text vertically */
+    justify-content: center; /* Centers text horizontally */
+    width: auto;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-family: 'Oswald', sans-serif;
+    line-height: 1.4; /* Ensures proper text spacing */
+    text-align: center; /* Ensures text is centered */
+    border: none; /* Optional: Clean button style */
+    border-radius: 5px; /* Optional: Rounded corners */
+    background: rgb(36, 153, 255); /* Button background color */
+    color: white; /* Button text color */
+    cursor: pointer; /* Shows pointer on hover */
+    border-radius: 19px;
+}
+
+
+/* Menu Adjustments */
+.MenuMenu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+}
+
+.LiterallyTheMenu {
+    position: fixed;
+    top: 150px;
+    right: 10px;
+    width: 90%;
+    max-width: 300px;
+    padding: 15px;
+}
+
+/* Calculator Grid */
+#keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+/* Responsive Images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    #calculator {
+        font-size: 1.5rem;
+    }
+
+    .commentcontainer {
+        width: 95%;
+    }
+
+    #keys button {
+        font-size: 1rem;
+    }
+
+    .MenuMenu, .LiterallyTheMenu {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    h1, h2, h3 {
+        font-size: 1.5rem;
+    }
 }
