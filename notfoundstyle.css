@@ -128,6 +128,8 @@ button:active {
 }
 
 button {
-    touch-action: manipulation; /* Disables double-tap zoom */
-    -webkit-user-select: none; /* Ensures no text selection on tap (for older browsers) */
+    touch-action: manipulation; /* Prevents double-tap zoom */
+    user-select: none; /* Standard property */
+    -webkit-user-select: none; /* For WebKit-based browsers */
+    -ms-user-select: none; /* For older Microsoft browsers */
 }
