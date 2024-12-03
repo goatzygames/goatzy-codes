@@ -87,3 +87,9 @@ button:active {
         font-size: 0.7rem;
     }
 }
+
+
+button {
+    touch-action: manipulation; /* Disables double-tap zoom */
+    -webkit-user-select: none; /* Ensures no text selection on tap (for older browsers) */
+}
