@@ -4,6 +4,10 @@ document.getElementById("SubmitButton").onclick = function() {
     const now = new Date(); // Create a new Date object for each click
     const Firsthours = now.getHours();
     const Firstminutes = now.getMinutes();
+    const UserCommentRealInput = document.getElementById("UserCommentInput")
+    const TheNameContainerFirstValue = document.getElementById("Input")
+
+    UserCommentRealInput.value = TheNameContainerFirstValue.value;
 
     if (document.getElementById("Input").value === "") {
         document.getElementById("Paragraph").textContent = `(${Firsthours}:${Firstminutes}) The input is empty.`

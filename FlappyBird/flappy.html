@@ -7,15 +7,27 @@
 <link rel="stylesheet" href="flappy.css">
 <style>
 canvas {
-    border:10px inset #008b15;
+    border: 10px inset #008b15;
     animation: FadeIn 2s ease-in-out;
+    width: 45%;   /* Scale to fit the container */
+    height: 45%;  /* Maintain aspect ratio */
+    max-width: 100%; /* Prevent scaling beyond the container */
 }
+
+@media (max-width: 480px) {
+    canvas {
+        width: 90%;
+        height: auto;
+        border: 5px inset #008b15; /* Thinner border for smaller screens */
+    }
+}
+
 </style>
 </head>
 <body onload="startGame()">
 
-    <hr>
-    <h1>Flappy Goatzy</h1><br><br>
+    
+    <h1>Flappy Goatzy</h1>
     <h2>High score: </h2><h2 id="HighScoreText"></h2>
 
     <script>
