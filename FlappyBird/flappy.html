@@ -159,9 +159,14 @@ canvas {
             return false;
         }
         
+        let isAccelerating = false;  // Flag to control acceleration
+        let accelerationDuration = 20;  // Number of frames acceleration lasts
+
         function accelerate(n) {
             myGamePiece.gravity = n;
         }
+
+
         
         function gameOver() {
             myGameArea.stop(); // Stop the game loop
@@ -177,7 +182,7 @@ canvas {
         
         
 <br>
-<button style="font-size: large; width: 110px; height: 50px;" onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">Accelerate</button>
+<button style="font-size: large; width: 110px; height: 50px;" onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.063)">Accelerate</button>
 <button style="font-size: large; width: 110px; height: 50px;" onclick="window.location.href=window.location.href;">Restart Game</button>
 <p>Use the Accelerate button to stay in the air</p>
 <p>How long can you stay alive?</p><br>

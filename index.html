@@ -31,12 +31,20 @@
 
     <hr><p>Admin Passwords</p><input id="password" type="password"><button id="PasswordButton">Submit</button>
 </div>
+
+<br>
+  <div id="ClockContainer">
+    <h2 id="TextThatSaysClock">Clock</h2>
+         <h1 id="TimeMilitary">00:00</h1>
+         <i id="TimeDate">Date, Date, Date</i>
+  </div>
+<br>
     
     <div class="Container" style="text-align: center;">
         <a href="404.html"><button id="AboutName">About</button></a>
-        <p>Save Your Name System</p><br>
+        <p title="Saves your name to use it later.">Save Your Name</p><br>
         <p style="font-size: large;">Enter Your Name Here</p>
-        <input id="Input">
+        <input id="Input" aria-label="Enter Your Name Here">
         <br><br><button id="SubmitButton">Submit</button>
         <p id="Paragraph"></p>
     </div>
@@ -118,6 +126,8 @@
             <button onclick="copyToClipboard()" style="font-size: large;">Copy</button>
         </div>
     </div>
+
+    
 
     <br><br>
     <div class="HelloTravelerFlappy"><h1>Hello dear traveler, 
