@@ -4,21 +4,35 @@ document.getElementById("SubmitButton").onclick = function() {
     const now = new Date(); // Create a new Date object for each click
     const Firsthours = now.getHours();
     const Firstminutes = now.getMinutes();
-    const UserCommentRealInput = document.getElementById("UserCommentInput")
-    const TheNameContainerFirstValue = document.getElementById("Input")
+    const TheNameContainerFirstValue = document.getElementById("Input"); // The username input
 
-    UserCommentRealInput.value = TheNameContainerFirstValue.value;
-
-    if (document.getElementById("Input").value === "") {
-        document.getElementById("Paragraph").textContent = `(${Firsthours}:${Firstminutes}) The input is empty.`
+    // Check if the input is empty
+    if (TheNameContainerFirstValue.value === "") {
+        document.getElementById("Paragraph").textContent = `(${Firsthours}:${Firstminutes}) The input is empty.`;
     } else {
-            // Get the username from the input field
-    username = document.getElementById("Input").value;
+        // Get the username from the input field
+        username = TheNameContainerFirstValue.value;
 
-    // Set the paragraph text content with the formatted time and username
-    document.getElementById("Paragraph").textContent = `(${Firsthours}:${Firstminutes}) Your name is now "${username}"`;
+        // Save the username to localStorage
+        localStorage.setItem("StoreUsername", username);
+
+        // Set the paragraph text content with the formatted time and username
+        document.getElementById("Paragraph").textContent = `(${Firsthours}:${Firstminutes}) Your name is now "${username}"`;
     }
-}
+};
+
+window.onload = function() {
+    const storedUsername = localStorage.getItem("StoreUsername");
+
+    // Check if there is a stored username and set it to the input field
+    if (storedUsername) {
+        const TheNameContainerFirstValue = document.getElementById("Input");
+        TheNameContainerFirstValue.value = storedUsername; // Set stored username to the input
+    }
+};
+
+
+
 
 let numbercount = 0
 
@@ -230,3 +244,19 @@ function copyToClipboard() {
             alert("Text failed to copy to clipboard.", err);
         });
 }
+
+function SetTime() {
+    let now = new Date();
+    let hours = now.getHours();
+    let minutes = now.getMinutes()
+    let seconds = now.getSeconds()
+
+    let formattedtime = `${hours}:${minutes < 10 ? "0" : ""}${minutes}:${seconds < 10 ? "0" : ""}${seconds}`
+
+    document.getElementById("TimeMilitary").textContent = formattedtime
+    document.getElementById("TimeDate").textContent = Date()
+}
+
+SetTime()
+
+setInterval (SetTime, 1000)

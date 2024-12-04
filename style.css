@@ -437,6 +437,7 @@ button {
     color: white; /* Button text color */
     cursor: pointer; /* Shows pointer on hover */
     border-radius: 19px;
+    transition: transform 0.1s ease-in-out, background-color 0.2s ease;
 }
 
 
@@ -504,4 +505,36 @@ button {
     user-select: none; /* Standard property */
     -webkit-user-select: none; /* For WebKit-based browsers */
     -ms-user-select: none; /* For older Microsoft browsers */
+}
+
+#ClockContainer {
+    background-color: gray;
+    box-shadow: 15px 15px 25px;
+    border-radius: 27px;
+    padding: 25px;
+    width: 50vh;
+    border: 10px inset silver;
+    text-align: center;
+}
+
+#TimeMilitary {
+    border: 5px inset silver;
+    background-color: black;
+    color: rgb(34, 255, 0);
+    padding: 20px;
+    font-size: 50px;
+}
+
+#TimeDate {
+    color: rgb(53, 53, 53);
+}
+
+#TimeDate:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+#TextThatSaysClock {
+    font-size: 5vh;
+    vertical-align: text-bottom;
 }
