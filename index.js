@@ -1,4 +1,5 @@
 let username;
+let canClickMenu = false;
 
 document.getElementById("SubmitButton").onclick = function() {
     const now = new Date(); // Create a new Date object for each click
@@ -73,23 +74,6 @@ if (hours >= 6 && hours < 12) {
 } else {
     let message = "Good evening";
     document.getElementById("Welcome").textContent = `${message}! Here are some of my small projects!`;
-}
-
-document.getElementById("MenuButton").onclick = function () {
-
-    let LitTheMenu = document.getElementsByClassName("LiterallyTheMenu")[0];
-
-    let CheckMenu = document.getElementById("TheMenu")
-
-    let LitTheMenuVis = getComputedStyle(CheckMenu).visibility;
-    console.log(LitTheMenu)
-
-    // toggle visibility
-    if (LitTheMenuVis === "visible") {
-        LitTheMenu.style.visibility = "hidden"; 
-    } else {
-        LitTheMenu.style.visibility = "visible"; 
-    }
 }
 
 "use strict";
@@ -260,3 +244,80 @@ function SetTime() {
 SetTime()
 
 setInterval (SetTime, 1000)
+
+    // Create the audio object
+    var buttonclick1 = new Audio("Sounds/buttonclick1.mp3");
+
+    // Get all button elements on the page
+    var buttons = document.querySelectorAll("button");
+
+    // Loop through all buttons and add event listeners
+    buttons.forEach(function(button) {
+        button.addEventListener("click", function() {
+            // If the sound is already playing, reset it to start from the beginning
+            if (!buttonclick1.paused) {
+                buttonclick1.currentTime = 0; // Reset the sound to the start
+            }
+            buttonclick1.play();  // Play sound when any button is clicked
+        });
+    });
+
+// Create the audio object for the elevator music
+var ElevatorMusic = new Audio("Sounds/elevatormusic.mp3");
+
+// Function to enable scrolling and play the music
+function enableScrollAndPlayMusic() {
+    // Enable scrolling
+    document.body.style.overflow = "auto"; // Allow scrolling
+    
+    // Play the elevator music
+    ElevatorMusic.loop = true; // Loop the music
+    ElevatorMusic.play(); // Play the music
+    canClickMenu = true;
+}
+
+document.getElementById("enableScrollButton").addEventListener("click", enableScrollAndPlayMusic);
+const enableScrollButtonn = document.getElementById("enableScrollButton")
+
+function RemoveContinueButton() {
+    enableScrollButtonn.remove()
+    canClickMenu = true;
+}
+
+document.getElementById("MenuButton").onclick = function () {
+
+    let LitTheMenu = document.getElementsByClassName("LiterallyTheMenu")[0];
+
+    let CheckMenu = document.getElementById("TheMenu")
+
+    let LitTheMenuVis = getComputedStyle(CheckMenu).visibility;
+    console.log(LitTheMenu)
+
+    if (canClickMenu) {
+        if (LitTheMenu.style.visibility === "visible") {
+            LitTheMenu.style.visibility = "hidden"; 
+        } else {
+            LitTheMenu.style.visibility = "visible"; 
+        }
+    }
+}
+
+let isMusicPlaying = true;
+
+document.getElementById("MusicInput").addEventListener('click', function() {
+    if (isMusicPlaying) {
+        ElevatorMusic.pause();
+        ElevatorMusic.currentTime = 0;
+        isMusicPlaying = false;
+    } else {
+        ElevatorMusic.play()
+        isMusicPlaying = true;
+    }
+});
+
+
+function SetMenuHiddenButton() {
+    let Menu = document.querySelector('.LiterallyTheMenu');
+
+    Menu.style.visibility = "hidden";
+}

@@ -120,17 +120,18 @@ button:active {
     width: 100px;
     left: 2px;
     margin-right: 0%;
+    font-size: x-large;
 }
 
 .LiterallyTheMenu {
     position: fixed;
-    top: 150px;
+    top: 50%;
     border: 1px solid white;
     background-color: white;
     padding: 25px;
     border-radius: 15px;
     box-shadow: 5px 5px 15px;
-    right: 20px;
+    right: 50%;
     visibility: hidden;
 }
 
