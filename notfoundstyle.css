@@ -1,4 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@font-face {
+    font-family: 'Oswald';
+    src: url('fonts/Oswald-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 700; /* Oswald supports weights between 100 and 700 */
+    font-style: normal;
+}
+
 
 body {
     display: flex;
