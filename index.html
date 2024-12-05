@@ -8,17 +8,22 @@
     <link rel="stylesheet" href="style.css">    
 </head>
 <body>
-        <br><br><br><br>
+
+    <br><br><br><br>
     <div class="content-wrapper"></div>
-    <h1 id="IntroductionText" style="text-align: center; margin: 100px; margin-top: 100px;">Hey there!<br>This is a small project I made where I put all of my smaller projects.<br>Give me suggestions/learning points in the #Comments !<br><br>Navigate through this website with the <i>My Projects</i> Button.</h1>
+    <h1 id="IntroductionText" style="text-align: center; margin: 100px; margin-top: 100px;">
+        Hey there!<br>This is a small project I made where I put all of my smaller projects.<br>
+        Give me suggestions/learning points in the #Comments !<br><br>Navigate through this website with the <i>My Projects</i> Button.<br>
+        <button id="enableScrollButton">Continue</button>
+    </h1>
     <div style="height: 300px; border-left: 2px solid rgb(0, 21, 255); margin: 0 10px;"></div><br>
 
     <p id="FirstProject"></p>
 
-<div class="MenuMenu">
-    <h1 id="Welcome">Welcome to My Projects</h1>
-    <button id="MenuButton">My Projects</button>
-</div>
+    <div class="MenuMenu">
+        <h1 id="Welcome">Welcome to My Projects</h1>
+        <button id="MenuButton">My Projects</button>
+    </div>
 
 <div class="LiterallyTheMenu">
     <h3 id="TheMenu" style="margin-bottom: 50px;">My Projects</h3>
@@ -142,6 +147,42 @@
        })();
     </script>
      
+     <script>
+        // Create the audio object
+        var buttonclick1 = new Audio("Sounds/buttonclick1.mp3");
+
+        // Get all button elements on the page
+        var buttons = document.querySelectorAll("button");
+
+        // Loop through all buttons and add event listeners
+        buttons.forEach(function(button) {
+            button.addEventListener("click", function() {
+                // If the sound is already playing, reset it to start from the beginning
+                if (!buttonclick1.paused) {
+                    buttonclick1.currentTime = 0; // Reset the sound to the start
+                }
+                buttonclick1.play();  // Play sound when any button is clicked
+            });
+        });
+    </script>
+
+<script>
+    // Create the audio object for the elevator music
+    var ElevatorMusic = new Audio("Sounds/elevatormusic.mp3");
+
+    // Function to enable scrolling and play the music
+    function enableScrollAndPlayMusic() {
+        // Enable scrolling
+        document.body.style.overflow = "auto"; // Allow scrolling
+        
+        // Play the elevator music
+        ElevatorMusic.loop = true; // Loop the music
+        ElevatorMusic.play(); // Play the music
+    }
+
+    // Add event listener for the button click
+    document.getElementById("enableScrollButton").addEventListener("click", enableScrollAndPlayMusic);
+</script>
     <script src="index.js"></script>    
     <div style="height: 100px; border-left: 2px solid rgb(0, 21, 255); margin: 0 10px;"></div>
 </body>

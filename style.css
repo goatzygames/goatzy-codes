@@ -8,6 +8,7 @@ body {
     background: linear-gradient(rgb(0, 55, 255), rgb(231, 255, 226), rgb(0, 55, 255));
     word-wrap: break-word;
     min-height: 100vh;
+    overflow: hidden;
 }
 
 p, h1, h2, h3 {
@@ -526,7 +527,7 @@ button {
 }
 
 #TimeDate {
-    color: rgb(53, 53, 53);
+    color: rgb(31, 31, 31);
 }
 
 #TimeDate:hover {
@@ -536,5 +537,5 @@ button {
 
 #TextThatSaysClock {
     font-size: 5vh;
-    vertical-align: text-bottom;
+    vertical-align: middle;
 }
