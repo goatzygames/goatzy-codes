@@ -1,167 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Goatzy's Codes</title>
-    <link rel="icon" type="image/x-icon" href="blueglossygoat.png">
-    <link rel="stylesheet" href="style.css"> 
-    
-    <!-- Title of the website -->
+<title>Goatzy Codes</title>
+<link rel="stylesheet" href="style.css">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Goatzy's Codes</title>
+<link rel="icon" type="image/x-icon" href="images/blueglossygoat.png">
+<link rel="stylesheet" href="style.css"> 
+
 <meta property="og:title" content="Goatzy's Codes">
 
-<!-- Description of the page -->
-<meta property="og:description" content="In this website I try making different projects from scratch and all of this is just for the purpose of learning and no money wanted. Although you could donate for nothing...">
+<meta property="og:description" content="Goatzy is making learning projects here...">
 
-<!-- URL of the page -->
 <meta property="og:url" content="https://goatzy-codes.xyz">
 
-<!-- Image for the preview -->
 <meta property="og:image" content="https://i.ibb.co/YBjLSt7/blueglossygoat.png">
 
-<!-- Type of content -->
 <meta property="og:type" content="website">
 
 <!-- Optional: Specify the site name -->
 <meta property="og:site_name" content="Goatzy's Codes">
-
-
 </head>
 <body>
 
     <br><br><br><br>
-    <div class="content-wrapper"></div>
-    <h1 id="IntroductionText" style="text-align: center; top: 80vh;">
-        Hey there!<br>This is my small learning project!<br><br>Navigate through this website with the <i>Menu</i> Button and<br>give me suggestions in the Comments!
-    </h1>
-    <div style="height: 300px; border-left: 2px solid rgb(0, 21, 255); margin: 0 10px;"></div><br>
 
-    <p id="FirstProject"></p>
+<div class="TopHeader">
+    <h2 style="left: 5vh" id="MenuButton" onclick="DebugMenu()">☰</h2>
+    <br>
+    <span id="GoatzyCodesText">Goatzy Codes</span>
 
-    <div class="MenuMenu">
-        <h1 id="Welcome">Welcome to My Projects</h1>
-        <button id="MenuButton">Menu</button>
-    </div>
-
-    <button id="enableScrollButton" style="position: fixed; right: 5%; top: 20%;" onclick="RemoveContinueButton()">Continue</button>
-
-<div class="LiterallyTheMenu" style="top: 20%; right: 10%; font-family: Arial, Helvetica, sans-serif; font-size:small;">
-    <h2 id="TheMenu" style="margin-bottom: 50px;">Menu</h2>
-    <a href="#FirstProject">Name Saving System</a><br><br>
-    <a href="#SecondProject">Counter System</a><br><br>
-    <a href="#AboutComments">Comments</a><br><br>
-    <a href="#CalculatorText">Calculator</a><br><br>
-    <a href="#OpenFlappy">Flappy Bird</a><br><br>
-    <label for="MusicInput">Music On/Off</label><br>
-    <input type="checkbox" id="MusicInput" checked>
-    <button onclick="SetMenuHiddenButton()">X</button><br>
-
-
-    <hr><p>Admin Passwords</p><input id="password" type="password"><button id="PasswordButton">Submit</button>
+    <a onclick="location.reload()" id="OpenHome"><span>Home</span></a>
 </div>
 
-<br>
-  <div id="ClockContainer">
-    <h2 id="TextThatSaysClock">Clock</h2>
-         <h1 id="TimeMilitary">00:00</h1>
-         <i id="TimeDate">Date, Date, Date</i>
-  </div>
-<br>
+
+<div class="TheMenu">
+    <h2>The Menu</h2>
+    <hr id="CheckMenu">
+    <div style="box-shadow: 1vh 1vh 2vh; border-radius: 2vh;">
+        <label for="MusicInput">Music On/Off</label>
+        <input id="MusicInput" type="checkbox">
+    </div>
+    <hr>
+
+</div>
+
+<div class="FirstBody">
+    <h1>Good Morning!</h1>
+    <div class="SecondBody" style="box-shadow: 2vh 2vh 3vh; border-radius: 3vh;">
+        <br>
+    <hr id="HrElement">
+
+        <h3>Hi! <br> Here are all of the projects I am currently working on with HTML, CSS and JAVASCRIPT! <br> If you got suggestions for me then email me in down below!</h3><hr id="HrElement">
     
-    <div class="Container" style="text-align: center;">
-        <a href="404.html"><button id="AboutName">About</button></a>
-        <p title="Saves your name to use it later.">Save Your Name</p><br>
-        <p style="font-size: large;">Enter Your Name Here</p>
-        <input id="Input" aria-label="Enter Your Name Here">
-        <br><br><button id="SubmitButton">Submit</button>
-        <p id="Paragraph"></p>
-    </div>
-
-    <h1 id="Header"></h1>
-       
-    <br><br><br><hr><br>
-    <p id="SecondProject"></p><hr>
-        <div class="SecondContainer" style="text-align: center;">
-            <a href="404.html"><button id="AboutName">About</button></a>
-        <h1>Counter</h1>
-        <h1 id="SetNumber">0</h1>
-        <button id="DecreaseButton">Decrease</button>
-        <button id="ResetButton">Reset</button>
-        <button id="IncreaseButton">Increase</button><br><br>
-        <button id="RandomButton">Random</button>
-    </div>
-
-    <br><br>
-    <br>
-    <br>
-
-    <div id="StartComment" class="commentcontainer" style="font-family: Oswald;">
-        <br><a href="404.html">
-        <button id="AboutComments" style="align-self: center; text-align: center;">About</button></a><br>
-        <div class="head"><br>
-            <br><h1>What do you think of my projects and so?</h1>
-            <a href="#publish">Click here to scroll down...</a>
-            <br><br><i>This will send the message to me, but still will save on your own device.</i>
-        </div>
-        <div>
-            <span id="Comment">0</span> Comments
-        </div>
-        <div class="text">
-            <p>I will be happy to hear from you!</p>
-        </div>
-        <div class="comments"></div>
-        <div class="commentbox">
-            <img src="commenterpng.png" alt="Commenter" id="CommenterStyle">
-            <div class="content">
-                <h2>Comment as:</h2>
-                <input  id="UserCommentInput" type="text" value="Anonymouse" class="user">
-                <div class="commentinput">
-                    <input id="input" type="text" placeholder="Enter your comment..." class="usercomment">
-                    <div class="buttons">
-                        <button type="submit" id="publish">Publish</button>
-                    </div>
-                </div>
-                <p class="policy">This site is protected by reCAPTCHA and the Google 
-                    <a href="404.html">Privacy Policy</a> and <a href="404.html">Terms of Service</a> apply.
-                </p>
+         <div class="ThirdBody">
+            <h1>Work Section</h1>
+            <br>
+            <div class="Project">
+            <h1>Calculator Project</h1>
+            <img src="images/calculatorprojectpng.png" style="width: 55vh; height: 65vh;">
+            <button style="font-size: x-large; width: 80%; height: 6vh;" onclick="OpenCounter()">Calculator</button>
+            <script>
+                function OpenCounter() {
+                    window.open("calculator.html", "_blank")
+                }
+            </script>
             </div>
-        </div>    
-    </div>    
-    
-    <br><br><br><br>
+            <br>
+            <div class="Project">
+                <h1>Counter Project</h1>
 
-    <div id="calculator">
-        <h1 id="CalculatorText">Calculator</h1>
-        <input style="height: 50%;" id="display" readonly>
-        <div id="keys">
-            <button onclick="appendToDisplay('+')" style="font-size: large;">+</button>
-            <button onclick="appendToDisplay('7')" style="font-size: large;">7</button>
-            <button onclick="appendToDisplay('8')" style="font-size: large;">8</button>
-            <button onclick="appendToDisplay('9')" style="font-size: large;">9</button>
-            <button onclick="appendToDisplay('-')" style="font-size: large;">-</button>
-            <button onclick="appendToDisplay('4')" style="font-size: large;">4</button>
-            <button onclick="appendToDisplay('5')" style="font-size: large;">5</button>
-            <button onclick="appendToDisplay('6')" style="font-size: large;">6</button>
-            <button onclick="appendToDisplay('*')" style="font-size: large;">*</button>
-            <button onclick="appendToDisplay('1')" style="font-size: large;">1</button>
-            <button onclick="appendToDisplay('2')" style="font-size: large;">2</button>
-            <button onclick="appendToDisplay('3')" style="font-size: large;">3</button>
-            <button onclick="appendToDisplay('/')" style="font-size: large;">/</button>
-            <button onclick="appendToDisplay('0')" style="font-size: large;">0</button>
-            <button onclick="appendToDisplay('.')" style="font-size: large;">.</button>
-            <button onclick="calculate()" style="font-size: large;">=</button>
-            <button onclick="clearDisplay()" style="font-size: large;">C</button>
-            <button onclick="copyToClipboard()" style="font-size: large;">Copy</button>
+                <button style="font-size: x-large; width: 80%; height: 6vh;" onclick="OpenRealCounter()">Counter</button>
+                <script>
+                    function openRealCounter() {
+                        window.open("counter.html", "_blank")
+                    }
+                </script>
+            </div>
         </div>
     </div>
+    </div>
+</div>
 
-    
+<br><br>
+<br>
+<br>
 
-    <br><br>
-    <div class="HelloTravelerFlappy"><h1>Hello dear traveler, 
-        <br><br>Click this button to access a Flappy bird clone<br>
-         that I've made:</h1>
-        <br><br><a href="/FlappyBird/flappy.html"><button id="OpenFlappy">Open Flappy</button></div></a>
+<div id="StartComment" class="commentcontainer" style="font-family: Oswald;">
+    <br><a href="404.html">
+    <button id="AboutComments" style="align-self: center; text-align: center;">About</button></a><br>
+    <div class="head"><br>
+        <br><h1>What do you think of my projects and so?</h1>
+        <a href="#publish">Click here to scroll down...</a>
+        <br><br><i>This will send the message to me, but still will save on your own device.</i>
+    </div>
+    <div>
+        <span id="Comment">0</span> Comments
+    </div>
+    <div class="text">
+        <p>I will be happy to hear from you!</p>
+    </div>
+    <div class="comments"></div>
+    <div class="commentbox">
+        <img src="commenterpng.png" alt="Commenter" id="CommenterStyle">
+        <div class="content">
+            <h2>Comment as:</h2>
+            <input  id="UserCommentInput" type="text" value="Anonymouse" class="user">
+            <div class="commentinput">
+                <input id="input" type="text" placeholder="Enter your comment..." class="usercomment">
+                <div class="buttons">
+                    <button type="submit" id="publish">Publish</button>
+                </div>
+            </div>
+            <p class="policy">This site is protected by reCAPTCHA and the Google 
+                <a href="404.html">Privacy Policy</a> and <a href="404.html">Terms of Service</a> apply.
+            </p>
+        </div>
+    </div>    
+</div>    
+
+<br><br><br><br>
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
@@ -172,8 +132,7 @@
 </script>
 
 
-    <script src="index.js"></script>    
-    <div style="height: 100px; border-left: 2px solid rgb(0, 21, 255); margin: 0 10px;"></div>
+
+<script src="index.js"></script>
 </body>
-       
 </html>

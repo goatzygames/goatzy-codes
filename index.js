@@ -1,80 +1,66 @@
-let username;
-let canClickMenu = false;
+document.getElementById("MenuButton").onclick = function () {
+    console.log("Hey it works!")
+    let LitTheMenu = document.getElementsByClassName("TheMenu")[0];  // Use class instead of id
 
-document.getElementById("SubmitButton").onclick = function() {
-    const now = new Date(); // Create a new Date object for each click
-    const Firsthours = now.getHours();
-    const Firstminutes = now.getMinutes();
-    const TheNameContainerFirstValue = document.getElementById("Input"); // The username input
+    let LitTheMenuVis = getComputedStyle(LitTheMenu).visibility;  // Check computed visibility
 
-    // Check if the input is empty
-    if (TheNameContainerFirstValue.value === "") {
-        document.getElementById("Paragraph").textContent = `(${Firsthours}:${Firstminutes}) The input is empty.`;
+    console.log(LitTheMenu)
+
+    // Assuming canClickMenu is true for this example
+    let canClickMenu = true;
+
+    if (canClickMenu) {
+        if (LitTheMenuVis === "visible") {
+            LitTheMenu.style.visibility = "hidden"; 
+        } else {
+            LitTheMenu.style.visibility = "visible"; 
+        }
+    }
+}
+
+    // Create the audio object
+    var buttonclick1 = new Audio("Sounds/buttonclick1.mp3");
+
+    // Get all button elements on the page
+    var buttons = document.querySelectorAll("button");
+
+    // Loop through all buttons and add event listeners
+    buttons.forEach(function(button) {
+        button.addEventListener("click", function() {
+            // If the sound is already playing, reset it to start from the beginning
+            if (!buttonclick1.paused) {
+                buttonclick1.currentTime = 0; // Reset the sound to the start
+            }
+            buttonclick1.play();  // Play sound when any button is clicked
+        });
+    });
+
+// Create the audio object for the elevator music
+var ElevatorMusic = new Audio("Sounds/elevatormusic.mp3");
+
+// Function to enable scrolling and play the music
+function enableScrollAndPlayMusic() {
+    // Enable scrolling
+    document.body.style.overflow = "auto"; // Allow scrolling
+    
+    // Play the elevator music
+    ElevatorMusic.loop = true; // Loop the music
+    ElevatorMusic.play(); // Play the music
+    canClickMenu = true;
+}
+
+let isMusicPlaying = false;
+
+document.getElementById("MusicInput").addEventListener('click', function() {
+    if (isMusicPlaying) {
+        ElevatorMusic.pause();
+        ElevatorMusic.currentTime = 0;
+        isMusicPlaying = false;
     } else {
-        // Get the username from the input field
-        username = TheNameContainerFirstValue.value;
-
-        // Save the username to localStorage
-        localStorage.setItem("StoreUsername", username);
-
-        // Set the paragraph text content with the formatted time and username
-        document.getElementById("Paragraph").textContent = `(${Firsthours}:${Firstminutes}) Your name is now "${username}"`;
+        ElevatorMusic.play()
+        isMusicPlaying = true;
     }
-};
-
-window.onload = function() {
-    const storedUsername = localStorage.getItem("StoreUsername");
-
-    // Check if there is a stored username and set it to the input field
-    if (storedUsername) {
-        const TheNameContainerFirstValue = document.getElementById("Input");
-        TheNameContainerFirstValue.value = storedUsername; // Set stored username to the input
-    }
-};
-
-
-
-
-let numbercount = 0
-
-document.getElementById("DecreaseButton").onclick = function(){
-    numbercount--;
-    document.getElementById("SetNumber").textContent = numbercount;
-}
-
-document.getElementById("ResetButton").onclick = function(){
-    numbercount = 0;
-    document.getElementById("SetNumber").textContent = numbercount;
-}
-
-document.getElementById("IncreaseButton").onclick = function(){
-    numbercount++;
-    document.getElementById("SetNumber").textContent = numbercount;
-}
-
-let RandomNum = Math.floor(Math.random() * 100)
-let maxNumber = 100
-let minNumber = -100
-
-document.getElementById("RandomButton").onclick = function(){
-    RandomNum = Math.floor(Math.random() * (maxNumber - minNumber)) +minNumber;
-    numbercount = RandomNum
-    document.getElementById("SetNumber").textContent = RandomNum
-}
-
-let now = new Date();
-let hours = now.getHours();
-
-if (hours >= 6 && hours < 12) {
-    let message = "Good morning";
-    document.getElementById("Welcome").textContent = `${message}! Here are some of my small projects!`;
-} else if (hours >= 12 && hours < 18) {
-    let message = "Good afternoon";
-    document.getElementById("Welcome").textContent = `${message}! Here are some of my small projects!`;
-} else {
-    let message = "Good evening";
-    document.getElementById("Welcome").textContent = `${message}! Here are some of my small projects!`;
-}
+});
 
 "use strict";
 
@@ -186,138 +172,3 @@ function sendEmail(userId) {
 
 // Attach event listener to the publish button
 publishBtn.addEventListener("click", addPost);
-
-document.getElementById("password");
-
-const locstorresetpass = ("LocalStorageReset0010");
-let passwordinputvalue = document.getElementById("password").value;
-
-document.getElementById("PasswordButton").onclick = function() {
-    passwordinputvalue = document.getElementById("password").value;
-    if (passwordinputvalue === locstorresetpass) {
-        localStorage.clear();
-        alert("Local storage has been cleared successfully.");
-    }
-};
-
-const display = document.getElementById("display");
-
-function appendToDisplay(input) {
-    display.value += input;
-}
-
-function calculate() {
-    try{
-        display.value = eval(display.value);
-    }
-    catch(error){
-        display.value = "Oops"
-    }
-}
-
-function clearDisplay() {
-    display.value = "";
-}
-
-function copyToClipboard() {
-    navigator.clipboard.writeText(display.value)
-        .then(() => {
-            alert("Text copied to clipboard");
-        })
-        .catch(err => {
-            alert("Text failed to copy to clipboard.", err);
-        });
-}
-
-function SetTime() {
-    let now = new Date();
-    let hours = now.getHours();
-    let minutes = now.getMinutes()
-    let seconds = now.getSeconds()
-
-    let formattedtime = `${hours}:${minutes < 10 ? "0" : ""}${minutes}:${seconds < 10 ? "0" : ""}${seconds}`
-
-    document.getElementById("TimeMilitary").textContent = formattedtime
-    document.getElementById("TimeDate").textContent = Date()
-}
-
-SetTime()
-
-setInterval (SetTime, 1000)
-
-    // Create the audio object
-    var buttonclick1 = new Audio("Sounds/buttonclick1.mp3");
-
-    // Get all button elements on the page
-    var buttons = document.querySelectorAll("button");
-
-    // Loop through all buttons and add event listeners
-    buttons.forEach(function(button) {
-        button.addEventListener("click", function() {
-            // If the sound is already playing, reset it to start from the beginning
-            if (!buttonclick1.paused) {
-                buttonclick1.currentTime = 0; // Reset the sound to the start
-            }
-            buttonclick1.play();  // Play sound when any button is clicked
-        });
-    });
-
-// Create the audio object for the elevator music
-var ElevatorMusic = new Audio("Sounds/elevatormusic.mp3");
-
-// Function to enable scrolling and play the music
-function enableScrollAndPlayMusic() {
-    // Enable scrolling
-    document.body.style.overflow = "auto"; // Allow scrolling
-    
-    // Play the elevator music
-    ElevatorMusic.loop = true; // Loop the music
-    ElevatorMusic.play(); // Play the music
-    canClickMenu = true;
-}
-
-document.getElementById("enableScrollButton").addEventListener("click", enableScrollAndPlayMusic);
-const enableScrollButtonn = document.getElementById("enableScrollButton")
-
-function RemoveContinueButton() {
-    enableScrollButtonn.remove()
-    canClickMenu = true;
-}
-
-document.getElementById("MenuButton").onclick = function () {
-
-    let LitTheMenu = document.getElementsByClassName("LiterallyTheMenu")[0];
-
-    let CheckMenu = document.getElementById("TheMenu")
-
-    let LitTheMenuVis = getComputedStyle(CheckMenu).visibility;
-    console.log(LitTheMenu)
-
-    if (canClickMenu) {
-        if (LitTheMenu.style.visibility === "visible") {
-            LitTheMenu.style.visibility = "hidden"; 
-        } else {
-            LitTheMenu.style.visibility = "visible"; 
-        }
-    }
-}
-
-let isMusicPlaying = true;
-
-document.getElementById("MusicInput").addEventListener('click', function() {
-    if (isMusicPlaying) {
-        ElevatorMusic.pause();
-        ElevatorMusic.currentTime = 0;
-        isMusicPlaying = false;
-    } else {
-        ElevatorMusic.play()
-        isMusicPlaying = true;
-    }
-});
-
-
-function SetMenuHiddenButton() {
-    let Menu = document.querySelector('.LiterallyTheMenu');
-
-    Menu.style.visibility = "hidden";
-}
