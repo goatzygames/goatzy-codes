@@ -13,6 +13,8 @@ body {
     background: linear-gradient(rgb(0, 55, 255), rgb(231, 255, 226), rgb(0, 55, 255));
     min-height: 100vh;
     font-family: "Oswald", sans-serif;
+    left: 2vh;
+    right: 2vh;
 }
 
 .TopHeader {
@@ -163,37 +165,9 @@ button {
         height: auto;
         padding: 1rem;
     }
-
-    #GoatzyCodesText {
-        font-size: 1.2rem;
-        padding: 0.5rem;
-    }
-
-    #OpenHome {
-        font-size: 0.9rem;
-        padding-left: 0;
-    }
-
-    .FirstBody {
-        width: 95%;
-        padding: 3%;
-    }
-
-    .TheMenu {
-        top: 15vh;
-        left: 5%;
-        width: 90%;
-    }
 }
 
 @media (max-width: 480px) {
-    #GoatzyCodesText {
-        font-size: 1rem;
-    }
-
-    #OpenHome {
-        font-size: 0.8rem;
-    }
 
     button {
         font-size: 0.8rem;
@@ -203,9 +177,10 @@ button {
 
 
 .commentcontainer {
-    background: #2f2f2f;
+    background: #ffffff;
     padding: 0 20px;
-    width: 500px;
+    width: 90%; /* Adjusts to smaller screen sizes */
+    max-width: 500px; /* Maintains the original size on larger screens */
     box-shadow: 0 0 5px black;
     border-radius: 15px;
     margin: 0 auto;
@@ -214,6 +189,10 @@ button {
 .head {
     text-transform: uppercase;
     margin-bottom: 20px;
+    box-shadow: 5px 5px 15px black;
+    border-radius: 20px;
+    background: rgb(251, 252, 255);
+    padding: 15px;
 }
 
 .text {
@@ -224,8 +203,9 @@ button {
 
 .commentbox {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between; /* Adjusted for better alignment */
     padding: 10px;
+    flex-wrap: wrap; /* Allows wrapping for smaller screens */
 }
 
 .commentbox > img {
@@ -259,14 +239,14 @@ button {
     outline: none;
     border-bottom: 2.5px solid rgb(255, 255, 255);
     margin-bottom: 10px;
-    width: 95%;
-    background-color:#2F2F2F;
+    width: 100%; /* Adjusts to full width for responsiveness */
+    background-color: #ffffff;
 }
 
 .policy {
     margin: 20px 0;
     font-size: 0.8em;
-    color: gray;
+    color: rgb(0, 34, 255);
 }
 
 .buttons {
@@ -274,23 +254,25 @@ button {
     justify-content: space-between;
     align-items: center;
     color: gray;
+    flex-wrap: wrap; /* Allows wrapping of buttons */
 }
 
 .comments {
     width: 100%;
-    max-width: 500px; /* Keeps the width consistent with your .commentcontainer */
+    max-width: 500px; /* Maintains the original style */
     margin-top: 20px;
 }
 
 .parents {
     display: flex;
+    flex-wrap: wrap; /* Allows wrapping for smaller screens */
     margin-bottom: 15px;
     padding: 10px;
-    border: 1px solid #555555;
+    border: 1px solid #717171;
     border-radius: 5px;
-    background-color: #282828;
+    background-color: #f8f9ff;
     box-sizing: border-box;
-    max-width: 100%; /* Ensures it doesn't exceed the parent container */
+    width: 100%; /* Ensures it adapts to the parent container */
 }
 
 .parents img {
@@ -299,15 +281,6 @@ button {
     border-radius: 50%;
     margin-right: 10px;
     object-fit: cover;
-}
-
-.parents > img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 20px;
-    object-fit: cover;
-    object-position: center;
 }
 
 .parents > div {
@@ -323,7 +296,6 @@ button {
     margin: 5px 0;
     font-size: 0.9em;
     line-height: 1.4;
-    display: flex;
     margin-bottom: 30px;
 }
 
@@ -347,9 +319,58 @@ button {
     box-shadow: 5px 5px 15px black;
 }
 
-.head {
-    box-shadow: 5px 5px 15px black;
-    border-radius: 20px;
-    background: rgb(63, 63, 63);
-    padding: 15px;
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .commentcontainer, .comments, .content {
+        width: 95%; /* Take up most of the screen width */
+        padding: 10px;
+    }
+
+    .commentbox {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: flex-start; /* Align items to the left */
+    }
+
+    .parents {
+        flex-direction: column; /* Stack parent comment elements */
+    }
+
+    .parents img {
+        margin-bottom: 10px; /* Add spacing for vertical stacking */
+    }
+
+    .buttons {
+        flex-direction: column; /* Stack buttons */
+        align-items: flex-start; /* Align buttons to the left */
+    }
+}
+
+@media (max-width: 480px) {
+    .commentcontainer, .comments, .content {
+        width: 100%; /* Use full width on small devices */
+        padding: 5px;
+    }
+
+    .head {
+        font-size: 1rem; /* Adjust heading size */
+        padding: 10px;
+    }
+
+    .parents h1 {
+        font-size: 1em; /* Slightly smaller for smaller screens */
+    }
+
+    .parents p {
+        font-size: 0.8em; /* Adjust paragraph size */
+    }
+
+    .commentbox > img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .engagements img {
+        width: 20px;
+        height: 20px;
+    }
 }

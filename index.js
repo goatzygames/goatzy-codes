@@ -1,4 +1,4 @@
-window.onload = SetTime;
+window.onload = SetTime();
 
 document.getElementById("MenuButton").onclick = function () {
     console.log("Hey it works!")
@@ -191,4 +191,8 @@ function SetTime() {
         let message = "Good evening";
         document.getElementById("Welcome").textContent = `${message}! Check out some codes I've made!`;
     }
+}
+
+function OpenAboutMe() {
+    window.location.href = "aboutme.html"
 }
