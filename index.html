@@ -23,7 +23,7 @@
 <!-- Optional: Specify the site name -->
 <meta property="og:site_name" content="Goatzy's Codes">
 </head>
-<body>
+<body onload="SetTime()">
 
     <br><br><br><br>
 
@@ -48,19 +48,25 @@
 </div>
 
 <div class="FirstBody">
-    <h1>Good Morning!</h1>
+    <h1 id="Welcome" style="font-size: xx-large; font-weight: 300;">Does not work</h1>
     <div class="SecondBody" style="box-shadow: 2vh 2vh 3vh; border-radius: 3vh;">
         <br>
     <hr id="HrElement">
+      <div class="AboutMe" style="display: flex; text-align: center; margin-right: 50%; margin: auto; padding-left: 25%;">
+        <img src="images/blueglossygoat.png" style="width: 10%; height: 10%;">
+        <h1 style="font-weight: 200;">About Me, Goatzy</h1>
+        <button style="height: min-content; align-self: center; right: 0;">About Me</button>
+      </div>
+    <hr>
 
-        <h3>Hi! <br> Here are all of the projects I am currently working on with HTML, CSS and JAVASCRIPT! <br> If you got suggestions for me then email me in down below!</h3><hr id="HrElement">
+        <h3 style="font-weight: 400;">Hi! <br> Here are all of the projects I am currently working on with HTML, CSS and JAVASCRIPT! <br> If you got suggestions for me then email me in down below!</h3><hr id="HrElement">
     
          <div class="ThirdBody">
-            <h1>Work Section</h1>
+            <h1 style="font-weight: 400;">Work Section</h1>
             <br>
             <div class="Project">
             <h1>Calculator Project</h1>
-            <img src="images/calculatorprojectpng.png" style="width: 55vh; height: 65vh;">
+            <img src="images/calculatorprojectpng.png" style="width: 80%; height: 80%vh;">
             <button style="font-size: x-large; width: 80%; height: 6vh;" onclick="OpenCounter()">Calculator</button>
             <script>
                 function OpenCounter() {
@@ -92,7 +98,7 @@
     <br><a href="404.html">
     <button id="AboutComments" style="align-self: center; text-align: center;">About</button></a><br>
     <div class="head"><br>
-        <br><h1>What do you think of my projects and so?</h1>
+        <br><h1>What do you think of my projects?</h1>
         <a href="#publish">Click here to scroll down...</a>
         <br><br><i>This will send the message to me, but still will save on your own device.</i>
     </div>
@@ -107,7 +113,7 @@
         <img src="commenterpng.png" alt="Commenter" id="CommenterStyle">
         <div class="content">
             <h2>Comment as:</h2>
-            <input  id="UserCommentInput" type="text" value="Anonymouse" class="user">
+            <input  id="UserCommentInput" type="text" value="default@gmail" class="user">
             <div class="commentinput">
                 <input id="input" type="text" placeholder="Enter your comment..." class="usercomment">
                 <div class="buttons">

@@ -1,3 +1,5 @@
+window.onload = SetTime;
+
 document.getElementById("MenuButton").onclick = function () {
     console.log("Hey it works!")
     let LitTheMenu = document.getElementsByClassName("TheMenu")[0];  // Use class instead of id
@@ -104,8 +106,8 @@ function addPost() {
     if (!userComment.value) return;
 
     // Set the user name from the input
-    userId.name = userName.value || "Anonymouse"; // If no name, set default to "Anonymouse"
-    if (userId.name === "Anonymouse") {
+    userId.name = userName.value || "default@gmail"; // If no name, set default to "Anonymouse"
+    if (userId.name === "default@gmail") {
         userId.identity = false;
         userId.image = "anonymousecommenter.png";
     } else {
@@ -158,7 +160,7 @@ function updateCommentCount() {
 function sendEmail(userId) {
     const templateParams = {
         to_name: "dev@goatzy-codes.xyz", // my email
-        from_name: userId.name || "Anonymouse", // name of the commenter
+        from_name: userId.name || "default@gmail", // name of the commenter
         message: userId.message, // the comment message
     };
 
@@ -172,3 +174,21 @@ function sendEmail(userId) {
 
 // Attach event listener to the publish button
 publishBtn.addEventListener("click", addPost);
+
+function SetTime() {
+    let now = new Date()
+    let hours = now.getHours()
+    let minutes = now.getMinutes()
+    console.log(`Hmm, what is the bug here..?`)
+
+    if (hours >= 6 && hours < 12) {
+        let message = "Good morning";
+        document.getElementById("Welcome").textContent = `${message}! Tell me down below how you feel about my codes!`;
+    } else if (hours >= 12 && hours < 18) {
+        let message = "Good afternoon";
+        document.getElementById("Welcome").textContent = `${message}! Here are some of my small projects!`;
+    } else {
+        let message = "Good evening";
+        document.getElementById("Welcome").textContent = `${message}! Check out some codes I've made!`;
+    }
+}
