@@ -29,6 +29,7 @@ body {
     padding: 0 10px; /* Add padding for spacing */
     position: fixed;
     z-index: 1000;
+    padding-left: 7vh;
 }
 
 #MenuButton {
@@ -128,6 +129,7 @@ hr {
     width: 80%; /* Responsive width */
     max-width: 600px; /* Limit max width */
     text-align: center;
+    border: 1px solid rgb(203, 203, 203);
 }
 
 .TheMenu {

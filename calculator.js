@@ -2,16 +2,16 @@ function CopyCalcCode() {
      const code = `<!DOCTYPE html>
 <html>
 <head>
-<title>Goatzy Codes</title>
+<title>Goatzy Calculator</title>
 <link rel="stylesheet" href="style.css">
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Goatzy's Calc</title>
-<link rel="icon" type="image/x-icon" href="blueglossygoat.png">
+<link rel="icon" type="image/x-icon" href="images/blueglossygoat.png">
 <link rel="stylesheet" href="style.css"> 
 
-<meta property="og:title" content="Goatzy's Codes">
+<meta property="og:title" content="Goatzy's Calc">
 
 <meta property="og:description" content="Here lives another project of Goatzy, a literal calculator...">
 
@@ -26,13 +26,49 @@ function CopyCalcCode() {
 </head>
 <body>
 
-<div class="TopHeader">
-    <h2 style="left: 5vh" id="MenuButton">☰</h2>
-    <br>
-    <span id="GoatzyCodesText">Goatzy Codes</span>
+    <div class="TopHeader">
+        <h2 style="left: 5vh" id="MenuButton" onclick="DebugMenu()">☰</h2>
+        <br>
+        <span id="GoatzyCodesText">Goatzy Codes</span>
+    
+        <a href="index.html" id="OpenHome"><span>Home</span></a>
+    </div>
+    
+    
+    <div class="TheMenu">
+        <h2>The Menu</h2>
+        <hr id="CheckMenu">
+        <div style="box-shadow: 1vh 1vh 2vh; border-radius: 2vh;">
+            <label for="MusicInput">Music On/Off</label>
+            <input id="MusicInput" type="checkbox">
+        </div>
+        <hr>
+    
+    </div>
 
-    <a href="index.html" id="OpenHome"><span>Home</span></a>
-</div>
+    <style>
+        .TheMenu {
+    box-shadow: 2vh 2vh 3vh;
+    background-color: white;
+    padding: 2.5vh;
+    border-radius: 2vh;
+    left: 3vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin: auto;
+    margin-right: 60%;
+    position: fixed;
+    margin-top: 10%;
+    z-index: 1000;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    width: 30vh;
+    visibility: hidden;
+    transition: visibility 0.3s ease-in-out;
+}
+    </style>
 
 <br><br><br><br><br><br><br>
 
@@ -63,8 +99,8 @@ function CopyCalcCode() {
 
 <div class="CopyCode">
     <h1>Copy the code</h1>
-    <h3>Sorry but I'm too lazy to show the code...</h3>
-    <button style="margin-left: 50vh;" onclick="CopyCalcCode()">Copy code</button>
+    <h3 id="DisplayCode">Copies the entire code to your clipboard.</h3>
+    <button style="margin-left: 50vh;" onclick="CopyCalcCode()" id="copyButton">Copy code</button>
 </div>
 
 <style>
@@ -96,6 +132,7 @@ body {
     padding: 0 10px;
     height: 10vh;
     position: fixed;
+    padding-left: 7vh;
 }
 
 #MenuButton:hover {
@@ -209,7 +246,7 @@ body {
     
     </script>
 
-    <script href="calculator.js"></script>
+    <script src="calculator.js"></script>
 
 </body>
 </html>`;

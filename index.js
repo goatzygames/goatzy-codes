@@ -182,17 +182,21 @@ function SetTime() {
     console.log(`Hmm, what is the bug here..?`)
 
     if (hours >= 6 && hours < 12) {
-        let message = "Good morning";
+        let message = "🌞Good morning";
         document.getElementById("Welcome").textContent = `${message}! Tell me down below how you feel about my codes!`;
     } else if (hours >= 12 && hours < 18) {
-        let message = "Good afternoon";
+        let message = "🕑Good afternoon";
         document.getElementById("Welcome").textContent = `${message}! Here are some of my small projects!`;
     } else {
-        let message = "Good evening";
+        let message = "🌃Good evening";
         document.getElementById("Welcome").textContent = `${message}! Check out some codes I've made!`;
     }
 }
 
 function OpenAboutMe() {
     window.location.href = "aboutme.html"
+}
+
+function OpenRealCounter() {
+    window.location.href = "counter.html"
 }
