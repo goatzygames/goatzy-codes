@@ -396,3 +396,8 @@ a:hover {
         transform: scale(1.2);
     }
 }
+
+html, body {
+    overflow: hidden; /* Prevents scrolling */
+    touch-action: manipulation; /* Prevents gestures like pinch-to-zoom */
+  }

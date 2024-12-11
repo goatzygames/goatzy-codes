@@ -10,12 +10,10 @@ const options = [
   "business",
   "fashion",
   "food",
-  "health",
   "insider",
   "magazine",
   "movies",
   "opinion",
-  "politics",
   "sports",
   "technology",
   "travel",
@@ -28,20 +26,23 @@ let requestURL;
 
 // Function to generate cards from data
 const generateUI = (articles) => {
-  for (let item of articles) {
-    let card = document.createElement("div");
-    card.classList.add("news-card");
-    card.innerHTML = `<div class="news-image-container">
-      <img src="${item.multimedia && item.multimedia[0] ? item.multimedia[0].url : './newspaper.jpg'}" alt="Image not available at the moment..." />
-    </div>
-    <div class="news-content">
-      <div class="news-title">${item.title}</div>
-      <div class="news-description">${item.abstract || item.lead_paragraph || ""}</div>
-      <a href="${item.url}" target="_blank" class="view-button">Read More</a>
-    </div>`;
-    container.appendChild(card);
-  }
-};
+    for (let item of articles) {
+      let card = document.createElement("div");
+      card.classList.add("news-card");
+      card.innerHTML = `
+        <div class="news-image-container">
+          <img src="${item.multimedia && item.multimedia[0] ? item.multimedia[0].url : './newspaper.jpg'}" alt="Image not available at the moment..." />
+        </div>
+        <div class="news-content">
+          <div class="news-title">${item.title}</div>
+          <div class="news-description">${item.abstract || item.lead_paragraph || ""}</div>
+          <button id="readMoreNews" onclick="window.open('${item.url}', '_blank')">Read More</button>
+        </div>
+      `;
+      container.appendChild(card);
+    }
+  };
+  
 
 // Function to fetch and display news from NY Times API
 const getNews = async () => {
@@ -109,34 +110,50 @@ document.getElementById("MenuButton").onclick = function () {
     }
 }
 
-    // Create the audio object
-    var buttonclick1 = new Audio("Sounds/buttonclick1.mp3");
+   // Array of elevator music files
+const audioFiles = [
+    "/Sounds/elevatormusic.mp3",
+    "/Sounds/elevatormusic2.mp3",
+    "/Sounds/elevatormusic3.mp3"
+];
 
-    // Get all button elements on the page
-    var buttons = document.querySelectorAll("button");
+// Create the audio object for the button click sound
+var buttonclick1 = new Audio("Sounds/buttonclick1.mp3");
 
-    // Loop through all buttons and add event listeners
-    buttons.forEach(function(button) {
-        button.addEventListener("click", function() {
-            // If the sound is already playing, reset it to start from the beginning
-            if (!buttonclick1.paused) {
-                buttonclick1.currentTime = 0; // Reset the sound to the start
-            }
-            buttonclick1.play();  // Play sound when any button is clicked
-        });
+// Get all button elements on the page
+var buttons = document.querySelectorAll("button");
+
+// Loop through all buttons and add event listeners
+buttons.forEach(function(button) {
+    button.addEventListener("click", function() {
+        // If the sound is already playing, reset it to start from the beginning
+        if (!buttonclick1.paused) {
+            buttonclick1.currentTime = 0; // Reset the sound to the start
+        }
+        buttonclick1.play();  // Play sound when any button is clicked
     });
+});
 
-// Create the audio object for the elevator music
-var ElevatorMusic = new Audio("/Sounds/elevatormusic.mp3");
+// Function to choose a random elevator music file and play it
+function playRandomElevatorMusic() {
+    const randomIndex = Math.floor(Math.random() * audioFiles.length); // Random index from array
+    const elevatorMusic = new Audio(audioFiles[randomIndex]); // Create new Audio object for the selected music
+    
+    elevatorMusic.loop = true; // Loop the music
+    elevatorMusic.play(); // Play the music
+    return elevatorMusic; // Return the audio object for possible control (pause, etc.)
+}
 
 // Function to enable scrolling and play the music
 function enableScrollAndPlayMusic() {
     // Enable scrolling
     document.body.style.overflow = "auto"; // Allow scrolling
     
-    // Play the elevator music
-    ElevatorMusic.loop = true; // Loop the music
-    ElevatorMusic.play(); // Play the music
+    // Play random elevator music
+    let elevatorMusic = playRandomElevatorMusic();
+    
+    // Store elevator music globally if you need to pause it later
+    window.currentElevatorMusic = elevatorMusic;
     canClickMenu = true;
 }
 
@@ -144,11 +161,13 @@ let isMusicPlaying = false;
 
 document.getElementById("MusicInput").addEventListener('click', function() {
     if (isMusicPlaying) {
-        ElevatorMusic.pause();
-        ElevatorMusic.currentTime = 0;
+        // Pause the current music and reset it to the start
+        window.currentElevatorMusic.pause();
+        window.currentElevatorMusic.currentTime = 0;
         isMusicPlaying = false;
     } else {
-        ElevatorMusic.play()
+        // Play random elevator music
+        window.currentElevatorMusic = playRandomElevatorMusic();
         isMusicPlaying = true;
     }
 });
