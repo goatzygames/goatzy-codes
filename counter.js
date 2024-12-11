@@ -122,3 +122,30 @@ function openHome() {
     navigator.clipboard.writeText(code)
     alert("Code copied successfully!")
 }
+
+// Create the audio object for the elevator music
+var ElevatorMusic = new Audio("/Sounds/elevatormusic.mp3");
+
+// Function to enable scrolling and play the music
+function enableScrollAndPlayMusic() {
+    // Enable scrolling
+    document.body.style.overflow = "auto"; // Allow scrolling
+    
+    // Play the elevator music
+    ElevatorMusic.loop = true; // Loop the music
+    ElevatorMusic.play(); // Play the music
+    canClickMenu = true;
+}
+
+let isMusicPlaying = false;
+
+document.getElementById("MusicInput").addEventListener('click', function() {
+    if (isMusicPlaying) {
+        ElevatorMusic.pause();
+        ElevatorMusic.currentTime = 0;
+        isMusicPlaying = false;
+    } else {
+        ElevatorMusic.play()
+        isMusicPlaying = true;
+    }
+});
