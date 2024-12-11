@@ -1,40 +1,49 @@
-//API Used: http://newsapi.org/s/india-news-api
+// API Key for NY Times
+let apiKey = "EzaTt4KDAPFH6AN5TpfWJXXjYE2phx7R";
 const container = document.querySelector(".container");
 const optionsContainer = document.querySelector(".options-container");
-let apiKey = "bea01b05876d4c04946ce4cff8ae7c5a"
-// "in" stands for India
-const country = "us";
 const options = [
-  "general",
-  "entertainment",
+  "home",
+  "arts",
+  "automobiles",
+  "books/review",
+  "business",
+  "fashion",
+  "food",
   "health",
-  "science",
+  "insider",
+  "magazine",
+  "movies",
+  "opinion",
+  "politics",
   "sports",
   "technology",
+  "travel",
+  "us",
+  "world"
 ];
-//100 requests per day
+
+// Request URL for NY Times API (use a relevant endpoint)
 let requestURL;
-//Create cards from data
+
+// Function to generate cards from data
 const generateUI = (articles) => {
   for (let item of articles) {
     let card = document.createElement("div");
     card.classList.add("news-card");
     card.innerHTML = `<div class="news-image-container">
-    <img src="${item.urlToImage || "./newspaper.jpg"}" alt="Image not available at the moment..." />
+      <img src="${item.multimedia && item.multimedia[0] ? item.multimedia[0].url : './newspaper.jpg'}" alt="Image not available at the moment..." />
     </div>
     <div class="news-content">
-      <div class="news-title">
-        ${item.title}
-      </div>
-      <div class="news-description">
-      ${item.description || item.content || ""}
-      </div>
+      <div class="news-title">${item.title}</div>
+      <div class="news-description">${item.abstract || item.lead_paragraph || ""}</div>
       <a href="${item.url}" target="_blank" class="view-button">Read More</a>
     </div>`;
     container.appendChild(card);
   }
 };
-//News API Call
+
+// Function to fetch and display news from NY Times API
 const getNews = async () => {
   container.innerHTML = "";
   let response = await fetch(requestURL);
@@ -43,35 +52,42 @@ const getNews = async () => {
     return false;
   }
   let data = await response.json();
-  generateUI(data.articles);
+  generateUI(data.results); // Adjusting to handle NY Times API response
 };
-//Category Selection
+
+// Function to select a category (not needed for NY Times API as it doesn't support categories like NewsAPI)
 const selectCategory = (e, category) => {
   let options = document.querySelectorAll(".option");
   options.forEach((element) => {
     element.classList.remove("active");
   });
-  requestURL = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apiKey}`;
+  requestURL = `https://api.nytimes.com/svc/topstories/v2/${category}.json?api-key=${apiKey}`;
   e.target.classList.add("active");
   getNews();
 };
-//Options Buttons
+
+// Create buttons for categories (if needed)
 const createOptions = () => {
-  for (let i of options) {
-    optionsContainer.innerHTML += `<button class="option ${
-      i == "general" ? "active" : ""
-    }" onclick="selectCategory(event,'${i}')">${i}</button>`;
-  }
+  // Categories are static; you may want to use only general or omit the category feature
+  optionsContainer.innerHTML = "";
+  options.forEach(i => {
+    optionsContainer.innerHTML += `<button class="option" onclick="selectCategory(event,'${i}')">${i}</button>`;
+  });
 };
+
+// Initialize the page with default content
 const init = () => {
   optionsContainer.innerHTML = "";
   getNews();
   createOptions();
 };
+
 window.onload = () => {
-  requestURL = `https://newsapi.org/v2/top-headlines?country=${country}&category=general&apiKey=${apiKey}`;
+  // Default category could be 'home' or 'general'
+  requestURL = `https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${apiKey}`;
   init();
 };
+
 
 document.getElementById("MenuButton").onclick = function () {
     console.log("Hey it works!")
