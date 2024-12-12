@@ -55,25 +55,31 @@
 
     @keyframes MakeBigger {
     0% {
-        transform: scale(1);
+        transform: scale(1) scaleY(1);
         font-weight: 400;
         background-color: rgb(255, 255, 255);
+        transform: scaleY(1);
     }
     50% {
-        transform: scale(1.2);
-        font-weight: 600;
+        transform: scale(1.2) scaleY(1.2);
+        font-weight: 650;
         background-color: rgb(232, 240, 255);
     }
     100% {
-        transform: scale(1);
+        transform: scale(1) scaleY(1);
         font-weight: 400;
         background-color: white;
     }
 }
 
-@keyframes GoSmallAgain {
-    
+.CopyCode {
+    box-shadow: 2vh 2vh 3vh;
+    margin: 10vh;
+    background-color: white;
+    border-radius: 2vh;
+    padding: 5vh;
 }
+
 </style>
 
 <br><br><br><br><br><br>
@@ -88,6 +94,14 @@
         <h1 style="font-weight: 400; box-shadow: 1vh 1vh 2vh; border-radius: 3vh; padding: 1vh; width: 50%; text-align: center; margin: auto;" id="Display">1</h1>
         <button onclick="copyRandomNum()">Copy</button>
     </div>
+</div>
+
+<br><br><br><br>
+
+<div class="CopyCode">
+    <h1>Copy the code</h1>
+    <h3 id="DisplayCode">Copies the entire code to your clipboard.</h3>
+    <button style="margin-left: 50vh;" onclick="CopyCode()" id="copyButton">Copy code</button>
 </div>
 
 <script>
