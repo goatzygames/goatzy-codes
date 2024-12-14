@@ -118,6 +118,13 @@ userComment.addEventListener("input", e => {
     }
 });
 
+// Function to remove links from a string
+function removeLinks(input) {
+    // Regular expression to match URLs
+    const urlPattern = /https?:\/\/[^\s]+|www\.[^\s]+|[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/gi;
+    return input.replace(urlPattern, "[Link Removed]"); // Replace the URL with "[Link Removed]"
+}
+
 // Function to add a comment
 function addPost() {
     console.log("The button works");
@@ -134,7 +141,8 @@ function addPost() {
         userId.image = "commenterpng.png";
     }
 
-    userId.message = userComment.value;
+    // Clean the comment message by removing links
+    userId.message = removeLinks(userComment.value);
     userId.date = new Date().toLocaleString();
 
     // Create the HTML for the new comment
@@ -218,4 +226,9 @@ function OpenAboutMe() {
 
 function OpenRealCounter() {
     window.location.href = "counter.html"
+}
+
+function resetLocStorage() {
+    localStorage.clear();
+    window.location.reload();
 }
