@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Goatzy Codes</title>
+<link rel="stylesheet" href="style.css">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Goatzy's Codes</title>
+<link rel="icon" type="image/x-icon" href="images/blueglossygoat.png">
+<link rel="stylesheet" href="style.css"> 
+
+<meta property="og:title" content="Goatzy's Codes">
+
+<meta property="og:description" content="Goatzy is making learning projects here...">
+
+<meta property="og:url" content="https://goatzy-codes.xyz">
+
+<meta property="og:image" content="https://i.ibb.co/YBjLSt7/blueglossygoat.png">
+
+<meta property="og:type" content="website">
+
+<meta property="og:site_name" content="Goatzy's Codes">
+</head>
+<body>
+
+    <style>
+        body {
+            background-color: rgb(150, 150, 150)55, 255, 255;
+        }
+
+        h1 {
+            color: rgb(34, 93, 255);
+        }
+
+        form {
+            background-color: white;
+            text-align: center;
+            max-width: 350px;
+            margin-top: 20vh;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.515);
+        }
+
+        #textbox {
+            width: 50%;
+            text-align: center;
+            font-size: 2em;
+            border: 2px solid rgba(0, 0, 0, 0.785);
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        button {
+            margin-top: 15px;
+            background-color: rgb(0, 128, 255);
+            font-size: 1.5em;
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: blue;
+        }
+
+        #result {
+            font-size: 1.75em;
+            font-weight: bold;
+        }
+    </style>
+
+    <form>
+        <h1>Temperature conversion:</h1>
+        <input type="number" id="textbox" value="0"><br>
+
+        <input type="radio" id="toFahrenheit" name="unit">
+        <label for="toFahrenheit">Celsius ➡ Fahrenheit</label><br>
+
+        <input type="radio" id="toCelsius" name="unit">
+        <label for="toCelsius">Fahrenheit ➡ Celsius</label>
+<br>
+        <button type="button" onclick="convert()">Submit</button>
+        <p id="result"></p>
+    </form>
+
+    <script src="index.js"></script>
+</body>
+</html> 
