@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Goatzy Random Number</title>
-<link rel="stylesheet" href="style.css">
+
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -40,22 +40,65 @@ than anything else; connection.">
 <meta property="og:site_name" content="Goatzy's 404 Page?">
 </head>
 <body>
-    
-    <div class="content-wrapper"></div>
-    
-    <div style="height: 100px; border-left: 2px solid rgb(0, 21, 255); margin: 0 10px;"></div>
+<style>@font-face {
+    font-family: "Oswald";
+    src: url('fonts/Oswald-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 700; /* Oswald supports weights between 100 and 700 */
+    font-style: normal;
+}
 
-    <style>
-        * {
-            box-shadow: 1.5vh 1.5vh 3vh black;
-            padding: 3vh;
-            background-color: white;
-            border-radius: 3vh;
-        }
-    </style>
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    background: linear-gradient(rgb(0, 55, 255), rgb(231, 255, 226), rgb(0, 55, 255));
+    min-height: 100vh;
+    font-family: "Oswald", sans-serif;
+    left: 2vh;
+    right: 2vh;
+}
+button {
+    background-color: rgb(36, 153, 255);
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    border: none;
+    color: white;
+    margin: 0.5rem;
+    font-family: "Oswald", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease-in-out;
+}
 
-    <h1 id="First" style="text-align: center;">Oops! Looks like this isn't a project of mine...<br><br><br>Or is it?<br><br><br></h1>
-        <p id="LongText">On a deeper level, though, just think about it: what is 'mine' anyway?<br>
+button:hover {
+    background-color: rgb(19, 91, 154);
+}
+
+button:active {
+    animation: ButtonClick 0.2s forwards ease-in-out;
+}
+
+@keyframes ButtonClick {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    75% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+}
+</style>
+
+    <h1 href="https://guthub.com" title="just like https://guthib.com" style="box-shadow: 1.5vh 1.5vh 2vh black; padding: 2vh; border-radius: 2vh; background-color: white;">You spelled it wrong.</h1>
+
+ 
+        <p id="LongText" style="box-shadow: 1.5vh 1.5vh 2vh black; padding: 2vh; border-radius: 2vh; background-color: white;">On a deeper level, though, just think about it: what is 'mine' anyway?<br>
              Ownership, creativity, and the human impulse to manufacture<br>
               things are more ethereal than we sometimes comprehend. If I construct the<br>
                chair, it’s “my” chair. Nevertheless, when somebody else utilizes it, likes it,<br>
@@ -79,7 +122,6 @@ than anything else; connection.">
 
         <a href="index.html"><button>Back to homepage</button></a>
 
-        <div style="height: 100px; border-left: 2px solid rgb(0, 21, 255); margin: 0 10px;"></div>
 
 </body>
 </html>
