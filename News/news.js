@@ -1,5 +1,4 @@
-// API Key for NY Times
-let apiKey = "EzaTt4KDAPFH6AN5TpfWJXXjYE2phx7R";
+import { apiKey } from './api-key.js';
 const container = document.querySelector(".container");
 const optionsContainer = document.querySelector(".options-container");
 const options = [
@@ -21,10 +20,8 @@ const options = [
   "world"
 ];
 
-// Request URL for NY Times API (use a relevant endpoint)
 let requestURL;
 
-// Function to generate cards from data
 const generateUI = (articles) => {
     for (let item of articles) {
       let card = document.createElement("div");
