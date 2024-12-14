@@ -78,7 +78,29 @@
     background-color: white;
     border-radius: 2vh;
     padding: 5vh;
+    max-width: 90%;  /* Ensures it doesn't exceed 90% of the viewport width */
+    width: auto;     /* Makes the width flexible */
+    overflow: hidden; /* Prevents any overflow from happening */
+    box-sizing: border-box; /* Ensures padding and borders are included in the width/height calculation */
 }
+
+@media (max-width: 768px) { /* For tablets or smaller screens */
+    .CopyCode {
+        margin: 5vh;  /* Reduces margin on smaller screens */
+        padding: 3vh; /* Reduces padding on smaller screens */
+    }
+}
+
+@media (max-width: 480px) { /* For mobile screens */
+    .CopyCode {
+        margin: 3vh;  /* Further reduces margin for mobile */
+        padding: 2vh; /* Further reduces padding for mobile */
+        box-shadow: 1vh 1vh 2vh; /* Smaller box shadow */
+        max-width: 100%; /* Makes sure the container uses the full available width */
+    }
+}
+
+
 
 </style>
 
