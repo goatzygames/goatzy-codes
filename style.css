@@ -258,10 +258,10 @@ button {
     padding: 15px;
     padding-left: 0;
     outline: none;
-    border-bottom: 2.5px solid rgb(255, 255, 255);
+    border-bottom: 2.5px solid rgb(0, 13, 255);
     margin-bottom: 15px;
     width: 100%; /* Full width for better responsiveness */
-    background-color: #ffffff;
+    background-color: white;
 }
 
 .policy {

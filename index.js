@@ -238,3 +238,31 @@ function scrollToBlogs() {
     const target = document.getElementsByClassName("blog-cards")[0];
     target.scrollIntoView({ behavior: "smooth", block: "center" });
 }
+
+function makeHide() {
+    const neededContainers = document.querySelectorAll(".ThirdBody"); // Select all elements with the class "ThirdBody"
+    neededContainers.forEach((container) => {
+        container.style.display = "none"; // Set display to none
+        container.style.overflow = "hidden"; // Ensure no overflow content is visible
+    });
+
+    // Hide the "makeHideButton" and show the "makeVisibleButton"
+    document.getElementById("makeHideButton").style.display = "none";
+    document.getElementById("makeVisibleButton").style.display = "inline-block";
+    document.getElementById("makeHideButton").style.visibility = "hidden";
+    document.getElementById("makeVisibleButton").style.visibility = "visible";
+}
+
+function makeVisible() {
+    const neededContainers = document.querySelectorAll(".ThirdBody"); // Select all elements with the class "ThirdBody"
+    neededContainers.forEach((container) => {
+        container.style.display = "block"; // Set display to block
+        container.style.overflow = "visible"; // Allow content to flow normally
+    });
+
+    // Hide the "makeVisibleButton" and show the "makeHideButton"
+    document.getElementById("makeVisibleButton").style.display = "none";
+    document.getElementById("makeHideButton").style.display = "inline-block";
+    document.getElementById("makeVisibleButton").style.visibility = "hidden";
+    document.getElementById("makeHideButton").style.visibility = "visible";
+}
