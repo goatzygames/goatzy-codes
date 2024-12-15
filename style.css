@@ -121,7 +121,7 @@ hr {
 }
 
 .Project {
-    box-shadow: 2vh 2vh 3vh;
+    box-shadow: 2vh 2vh 3vh rgba(0, 0, 0, 0.766);
     background-color: white;
     margin: 2rem auto;
     border-radius: 10px;
@@ -197,24 +197,43 @@ button {
     padding: 15px;
 }
 
+.commentcontainer {
+    background: #ffffff;
+    padding: 0 30px;
+    width: 95%; /* Adjusts to smaller screen sizes */
+    max-width: 800px; /* Increased max width for larger screens */
+    box-shadow: 0 0 5px black;
+    border-radius: 15px;
+    margin: 0 auto;
+}
+
+.head {
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    box-shadow: 5px 5px 15px black;
+    border-radius: 20px;
+    background: rgb(251, 252, 255);
+    padding: 20px;
+}
+
 .text {
-    margin: 10px 0;
-    font-size: 0.9em;
+    margin: 15px 0;
+    font-size: 1em; /* Slightly larger for better readability */
     font-family: "OtherFont, OtherFont2";
 }
 
 .commentbox {
     display: flex;
-    justify-content: space-between; /* Adjusted for better alignment */
-    padding: 10px;
+    justify-content: space-between; /* Maintains alignment */
+    padding: 15px;
     flex-wrap: wrap; /* Allows wrapping for smaller screens */
 }
 
 .commentbox > img {
-    width: 40px;
-    height: 40px;
+    width: 50px; /* Increased avatar size */
+    height: 50px;
     border-radius: 50%;
-    margin-right: 20px;
+    margin-right: 25px;
     object-fit: cover;
     object-position: center;
 }
@@ -222,32 +241,32 @@ button {
 .content {
     width: 100%;
     box-shadow: 5px 5px 15px black;
-    padding: 25px;
+    padding: 30px;
     border-radius: 30px;
 }
 
 .user {
     border: none;
     outline: none;
-    margin: 5px 0;
+    margin: 10px 0;
     color: gray;
     margin-left: 20px;
 }
 
 .commentinput > input {
     border: none;
-    padding: 10px;
+    padding: 15px;
     padding-left: 0;
     outline: none;
     border-bottom: 2.5px solid rgb(255, 255, 255);
-    margin-bottom: 10px;
-    width: 100%; /* Adjusts to full width for responsiveness */
+    margin-bottom: 15px;
+    width: 100%; /* Full width for better responsiveness */
     background-color: #ffffff;
 }
 
 .policy {
-    margin: 20px 0;
-    font-size: 0.8em;
+    margin: 25px 0;
+    font-size: 0.9em;
     color: rgb(0, 34, 255);
 }
 
@@ -257,19 +276,20 @@ button {
     align-items: center;
     color: gray;
     flex-wrap: wrap; /* Allows wrapping of buttons */
+    margin-top: 10px;
 }
 
 .comments {
     width: 100%;
-    max-width: 500px; /* Maintains the original style */
-    margin-top: 20px;
+    max-width: 70vh; /* Slightly wider to match the new layout */
+    margin-top: 25px;
 }
 
 .parents {
     display: flex;
     flex-wrap: wrap; /* Allows wrapping for smaller screens */
-    margin-bottom: 15px;
-    padding: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
     border: 1px solid #717171;
     border-radius: 5px;
     background-color: #f8f9ff;
@@ -278,10 +298,10 @@ button {
 }
 
 .parents img {
-    width: 40px;
-    height: 40px;
+    width: 50px; /* Increased avatar size */
+    height: 50px;
     border-radius: 50%;
-    margin-right: 10px;
+    margin-right: 15px;
     object-fit: cover;
 }
 
@@ -291,29 +311,29 @@ button {
 
 .parents h1 {
     margin: 0;
-    font-size: 1.1em;
+    font-size: 1.2em; /* Slightly larger heading */
 }
 
 .parents p {
-    margin: 5px 0;
-    font-size: 0.9em;
-    line-height: 1.4;
-    margin-bottom: 30px;
+    margin: 10px 0;
+    font-size: 1em; /* Increased paragraph size */
+    line-height: 1.5;
+    margin-bottom: 35px;
 }
 
 .engagements img {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
+    width: 35px;
+    height: 35px;
+    margin-right: 15px;
 }
 
 .engagements img:nth-child(1) {
-    margin-right: 10px;
-    width: 25px;
+    margin-right: 15px;
+    width: 30px;
 }
 
 .date {
-    font-size: 0.8em;
+    font-size: 0.9em; /* Slightly larger for better readability */
     color: gray;
 }
 
@@ -325,7 +345,7 @@ button {
 @media (max-width: 768px) {
     .commentcontainer, .comments, .content {
         width: 95%; /* Take up most of the screen width */
-        padding: 10px;
+        padding: 15px;
     }
 
     .commentbox {
@@ -338,7 +358,7 @@ button {
     }
 
     .parents img {
-        margin-bottom: 10px; /* Add spacing for vertical stacking */
+        margin-bottom: 15px; /* Add spacing for vertical stacking */
     }
 
     .buttons {
@@ -350,12 +370,12 @@ button {
 @media (max-width: 480px) {
     .commentcontainer, .comments, .content {
         width: 100%; /* Use full width on small devices */
-        padding: 5px;
+        padding: 10px;
     }
 
     .head {
-        font-size: 1rem; /* Adjust heading size */
-        padding: 10px;
+        font-size: 1.1rem; /* Adjust heading size */
+        padding: 15px;
     }
 
     .parents h1 {
@@ -363,20 +383,19 @@ button {
     }
 
     .parents p {
-        font-size: 0.8em; /* Adjust paragraph size */
+        font-size: 0.9em; /* Adjust paragraph size */
     }
 
     .commentbox > img {
-        width: 35px;
-        height: 35px;
+        width: 40px;
+        height: 40px;
     }
 
     .engagements img {
-        width: 20px;
-        height: 20px;
+        width: 25px;
+        height: 25px;
     }
 }
-
 a:hover {
     color: blue;
     animation: HyperLinkHover 0.3s forwards ease-in-out;

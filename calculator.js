@@ -252,7 +252,9 @@ body {
 </html>`;
 
 navigator.clipboard.writeText(code)
-  alert("Code copied to clipboard!")
+  alert(`Code copied to clipboard!
+    
+    ${code}`)
 
 }
 
