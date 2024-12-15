@@ -49,7 +49,7 @@
 
 <div class="FirstBody" style="box-shadow: 1.5vh 1.5vh 2vh rgba(0, 0, 0, 0.495);">
     <h1 id="Welcome" style="font-size: xxx-large; font-weight: 700;">Does not work</h1>
-    <div class="SecondBody" style="box-shadow: 2vh 2vh 3vh; border-radius: 3vh;">
+    <div class="SecondBody" style="box-shadow: 2vh 2vh 3vh rgba(0, 0, 0, 0.618); border-radius: 3vh;">
         <br>
       <div class="AboutMe" style="text-align: center; margin: 0 auto; display: flex; flex-wrap: nowrap; justify-content: center; gap: 10px;">
         <img src="images/blueglossygoat.png" style="width: 8vh; height: 8vh;">
@@ -92,9 +92,9 @@
                 <a href="counter.html" target="_blank"><button style="font-size: x-large; width: 80%; height: 6vh;">Counter</button></a>
             </div>
             <div class="Project">
-                <h1>Temperate Conversion Tool</h1>
-                <img src="images/generaterandomnumberimg.png" style="width: 80%; height: 100%;">
-                <a href="randomnumbergen.html" target="_blank"><button style="font-size: x-large; width: 80%; height: 6vh;">Temperature Converter</button></a>
+                <h1>Temperature Conversion Tool</h1>
+                <img alt="temp" src="images/tempconvertimg.png" style="width: 80%; height: 100%;">
+                <a href="temperatureconvert.html" target="_blank"><button style="font-size: x-large; width: 80%; height: 6vh;">Temperature Converter</button></a>
             </div>
         </div>
     </div>
@@ -108,20 +108,20 @@
     <div class="header" style="font-size: 6vh;">Blog Posts</div><br>
     <div class="blog-cards">
                 <!--Start of the blog card-->
-        <a href="Blogs/blog1.html" target="_blank" style="color: black;"><div class="card">
+        <a href="Blogs/blog1.html" style="color: black;"><div class="card">
             <div class="card-title">Welcome to this place</div>
             <div class="card-description">What's uup! This is a test blog post, just like the one in 
                 https://archive.is/cNIj7</div>
             <div class="card-date">13.12.2024</div>
         </div></a>
                 <!--End of the blog card-->
-        <a href="Blogs/blog2.html" target="_blank" style="color: black;"><div class="card">
+        <a href="Blogs/blog2.html" style="color: black;"><div class="card">
             <div class="card-title">New Update with the comment section. (serious blog)</div>
             <div class="card-description">New Update with the comment section. (serious blog) </div>
             <div class="card-date">14.12.2024 
             </div>
         </div></a>
-        <a href="Blogs/blog3.html" target="_blank" style="color: black;"><div class="card">
+        <a href="Blogs/blog3.html" style="color: black;"><div class="card" id="aboutComments">
             <div class="card-title">How does the comments work? Explained</div>
             <div class="card-description">Explaining if the comments have any vulnerabilities, if any.</div>
             <div class="card-date">14.12.2024 
@@ -138,9 +138,10 @@
     <br><a href="404.html">
     <button id="AboutComments" style="align-self: center; text-align: center;">About</button></a><br>
     <div class="head"><br>
-        <br><h1>What do you think of my projects?</h1>
+        <br><h1>Comments</h1>
         <a href="#publish">Click here to scroll down...</a>
-        <br><br><i>This will send the message to me, but still will save on your own device.</i>
+        <br><br><i style="font-size: small;">This will send the message to me,<br>but still will save on your own device.<br>
+        more about them <a href="javascript:void(0);" onclick="scrollToBlogs(); playAnimation()" style="cursor: pointer;">Here</a></i>
     </div>
     <div>
         <span id="Comment">0</span> Comments
@@ -157,8 +158,7 @@
             <div class="commentinput">
                 <input id="input" type="text" placeholder="Enter your comment..." class="usercomment">
                 <div class="buttons">
-                    <button type="submit" id="publish">Publish</button>
-                    <button type="submit" id="resetCom" style="height: 3vh; font-size: small; width: 17vh;" onclick="resetLocStorage()">Reset Comments</button>
+                    <button type="submit" id="publish">Publish</button><button type="submit" id="resetCom" style="height: 6vh; font-size: small; width: 17vh;" onclick="resetLocStorage()">Reset Comments</button>
                 </div>
             </div>
             <p style="font-size: small;">This site is protected by reCAPTCHA and the Google 

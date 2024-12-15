@@ -213,7 +213,7 @@ function SetTime() {
         document.getElementById("Welcome").textContent = `${message}! Tell me down below how you feel about my codes!`;
     } else if (hours >= 12 && hours < 18) {
         let message = "🕑Good afternoon";
-        document.getElementById("Welcome").textContent = `${message}! Here are some of my small projects!`;
+        document.getElementById("Welcome").textContent = `${message}! Try checking out the blogs!`;
     } else {
         let message = "🌃Good evening";
         document.getElementById("Welcome").textContent = `${message}! Check out some codes I've made!`;
@@ -231,4 +231,10 @@ function OpenRealCounter() {
 function resetLocStorage() {
     localStorage.clear();
     window.location.reload();
+}
+
+function scrollToBlogs() {
+    console.log("Hey")
+    const target = document.getElementsByClassName("blog-cards")[0];
+    target.scrollIntoView({ behavior: "smooth", block: "center" });
 }

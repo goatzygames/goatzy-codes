@@ -225,5 +225,8 @@ function CopyCode() {
 </html>`
 
 navigator.clipboard.writeText(code)
-alert("Code copied successfully!")
+alert(`Code copied successfully!
+
+    ${code}`
+)
 }
