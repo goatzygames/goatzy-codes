@@ -22,7 +22,7 @@
 
 <meta property="og:site_name" content="Goatzy's Codes">
 </head>
-<body onload="SetTime()">
+<body onload="SetTime()"> 
 
     <br><br><br><br>
 
@@ -46,6 +46,7 @@
     <hr>
 
 </div>
+
 
 <div class="FirstBody" style="box-shadow: 1.5vh 1.5vh 2vh rgba(0, 0, 0, 0.495);">
     <h1 id="Welcome" style="font-size: xxx-large; font-weight: 700;">Does not work</h1>
@@ -153,11 +154,11 @@
         <span id="Comment">0</span> Comments
     </div>
     <div class="text">
-        <p>I will be happy to hear from you!</p>
+        <p style="font-family: Oswald; font-weight: 300;">I will be happy to hear from you!</p><br>
     </div>
     <div class="comments"></div>
     <div class="commentbox">
-        <img src="commenterpng.png" alt="Commenter" id="CommenterStyle">
+        <img src="commenterpng.png" alt="Commenter" id="CommenterStyle" style="margin: -5vh;">
         <div class="content">
             <h2>Comment as:</h2>
             <input  id="UserCommentInput" type="text" value="default@gmail" class="user">
@@ -185,7 +186,21 @@
 </script>
 
 
+<script>
+    // This function will run if the script fails to load
+    function handleScriptError() {
+        console.log("Fallback function executed.");
+        setTimeout(ChromeThing, 2000)
 
+        function ChromeThing(){
+           while(true) {
+           window.location.reload()
+           }
+        }
+    }
+</script>
+
+<script src="index.js" onerror="handleScriptError()"></script>
 <script src="index.js"></script>
 </body>
 </html>

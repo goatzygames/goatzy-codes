@@ -125,9 +125,17 @@ function removeLinks(input) {
     return input.replace(urlPattern, "[Link Removed]"); // Replace the URL with "[Link Removed]"
 }
 
-// Function to add a comment
+let flaggedAddPostIf = false;
+
 function addPost() {
+    if (userName.value == "default@gmail" && !flaggedAddPostIf){
+        alert("Please enter your actual Email if you want me to contact you later. Not forced!");
+        flaggedAddPostIf = true;
+        return;
+    }
+    else {
     console.log("The button works");
+    }
 
     if (!userComment.value) return;
 
