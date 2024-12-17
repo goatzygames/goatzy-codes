@@ -200,7 +200,7 @@ function sendEmail(userId) {
         message: userId.message, // the comment message
     };
 
-    emailjs.send("service_z6as17f", "template_kiwhxjn", templateParams)
+    emailjs.send("service_z6as17f","template_kiwhxjn", templateParams)
         .then(function(response) {
             console.log("Email sent successfully:", response);
         }, function(error) {
