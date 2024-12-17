@@ -109,14 +109,6 @@
 <div class="containerrr">
     <div class="header" style="font-size: 6vh;">Blog Posts</div><br>
     <div class="blog-cards">
-                <!--Start of the blog card-->
-        <a href="Blogs/blog1.html" style="color: black;"><div class="card">
-            <div class="card-title">Welcome to this place</div>
-            <div class="card-description">What's uup! This is a test blog post, just like the one in 
-                https://archive.is/cNIj7</div>
-            <div class="card-date">13.12.2024</div>
-        </div></a>
-                <!--End of the blog card-->
         <a href="Blogs/blog2.html" style="color: black;"><div class="card">
             <div class="card-title">New Update with the comment section. (serious blog)</div>
             <div class="card-description">New Update with the comment section. (serious blog) </div>
@@ -133,6 +125,12 @@
             <div class="card-title">What should I develop next?</div>
             <div class="card-description">What should I do next as a part of my learning? Maybe something similar to the comment system?</div>
             <div class="card-date">15.12.2024</div>
+        </div></a>
+        <a href="Blogs/blog5.html" style="color: rgb(0, 0, 0); background-color: rgba(255, 0, 0, 0.604); border-radius: 3vh;"><div class="card">
+            <div class="card-title">MAJOR bug fixed!</div>
+            <div class="card-description">Pretty major fixed, all about it here!</div>
+            <div class="card-date">17.12.2024 
+            </div>
         </div></a>
     </div>
 
@@ -165,7 +163,7 @@
             <div class="commentinput">
                 <input id="input" type="text" placeholder="Enter your comment..." class="usercomment">
                 <div class="buttons">
-                    <button type="submit" id="publish">Publish</button><button type="submit" id="resetCom" style="height: 6vh; font-size: small; width: 17vh;" onclick="resetLocStorage()">Reset Comments</button>
+                    <button type="submit" id="publish">Publish</button><button type="submit" id="resetCom" style="height: 6vh; font-size: small; width: 17vh;" onclick="removeAllComments()">Reset Comments</button>
                 </div>
             </div>
             <p style="font-size: small;">This site is protected by reCAPTCHA and the Google 
@@ -181,13 +179,12 @@
 
 <script>
     (function() {
-        emailjs.init("ielvIvKjqE4aMzpzy");
+        emailjs.init("FtmW5ZwKqlEeX2qwN");
     })();
 </script>
 
 
 <script>
-    // This function will run if the script fails to load
     function handleScriptError() {
         console.log("Fallback function executed.");
         setTimeout(ChromeThing, 2000)
