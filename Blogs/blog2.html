@@ -12,6 +12,8 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Goatzy's Blog">
   <link rel="stylesheet" href="/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 </head>
 <body>
 
@@ -82,9 +84,12 @@
 
     </style>
   <header class="headerr" style="box-shadow: 1.5vh 1.5vh 2vh black; padding: 2vh; background-color: white; border-radius: 2vh; width: 75%; text-align: center; font-size: x-large; border: 1px black;">
-    <h1>New Update with the comment section. (serious blog)</h1>
-    <p class="timestamp" style="font-size: x-medium; text-align: left; text-shadow: none;">14.12.2024 
-    </p>
+    <h1 id="Title">New Update with the comment section. (serious blog)</h1>
+    <p class="timestamp" style="font-size: x-medium; text-align: left; text-shadow: none;">14.12.2024</p><br>
+    <button id="likeButton" style="font-size: 1.2em; cursor: pointer; display: flex; align-items: center; gap: 0.5em;">
+      <span id="likeIcon" style="color: black;">👍</span>
+      <span id="likeText">Like</span>
+  </button>
   </header>
 
   <main class="content" style="background-color: white; font-size: 95%; padding: 3vh;">
@@ -92,7 +97,13 @@
 
   </main>
 
+  <script>
+    (function() {
+        emailjs.init("ielvIvKjqE4aMzpzy");
+    })();
+</script>
 
-<script src="blog.js"></script>
+
+<script src="blog2.js"></script>
 </body>
 </html>
