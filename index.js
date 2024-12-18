@@ -191,7 +191,7 @@ function updateCommentCount() {
     document.getElementById("Comment").textContent = commentsNum;
 }
 
-// Function to send email using EmailJS
+// Function to send email with emailjs
 function sendEmail(userId) {
     const templateParams = {
         to_name: "Goatzy", // my email
@@ -200,13 +200,22 @@ function sendEmail(userId) {
         message: userId.message, // the comment message
     };
 
-    emailjs.send("service_z6as17f","template_kiwhxjn", templateParams)
+    emailjs.send("service_z6as17f", "template_kiwhxjn", templateParams)
         .then(function(response) {
             console.log("Email sent successfully:", response);
-        }, function(error) {
-            console.log("Email sending failed:", error);
+        })
+        .catch(function(error) {
+            console.error("Email sending failed:", error);
+            const sendAgain = window.prompt(
+                "Email sending failed. Type 'Again' to try resending or press Cancel to stop."
+            );
+
+            if (sendAgain && sendAgain.toLowerCase() === "again") {
+                sendEmail(userId); // Retry with the same userId
+            }
         });
 }
+
 
 // Attach event listener to the publish button
 publishBtn.addEventListener("click", addPost);
