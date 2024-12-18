@@ -1,4 +1,5 @@
 import { apiKey } from './api-key.js';
+
 const container = document.querySelector(".container");
 const optionsContainer = document.querySelector(".options-container");
 const options = [
@@ -53,8 +54,8 @@ const getNews = async () => {
   generateUI(data.results); // Adjusting to handle NY Times API response
 };
 
-// Function to select a category (not needed for NY Times API as it doesn't support categories like NewsAPI)
-const selectCategory = (e, category) => {
+// Function to select a category (now added to window for global access)
+window.selectCategory = (e, category) => {
   let options = document.querySelectorAll(".option");
   options.forEach((element) => {
     element.classList.remove("active");
