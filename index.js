@@ -137,6 +137,8 @@ function addPost() {
     console.log("The button works");
     }
 
+    if (userName.value == "")
+
     if (!userComment.value) return;
 
     // Set the user name from the input

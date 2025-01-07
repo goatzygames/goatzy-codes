@@ -90,7 +90,7 @@
         <button onclick="appendToDisplay('/')" style="font-size: large;">/</button>
         <button onclick="appendToDisplay('0')" style="font-size: large;">0</button>
         <button onclick="appendToDisplay('.')" style="font-size: large;">.</button>
-        <button onclick="calculate()" style="font-size: large;">=</button>
+        <button onclick="append()" style="font-size: large;">=</button>
         <button onclick="clearDisplay()" style="font-size: large;">C</button>
         <button onclick="copyToClipboard()" style="font-size: large;">Copy</button>
     </div>
@@ -268,7 +268,7 @@ a:hover {
         document.getElementById('display').value = '';
     }
     
-    function calculate() {
+    function append() {
         try {
             const result = eval(document.getElementById('display').value);
             document.getElementById('display').value = result;
